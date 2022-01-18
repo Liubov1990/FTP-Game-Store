@@ -1,0 +1,1 @@
+export const pageElementsAmount = 23;
