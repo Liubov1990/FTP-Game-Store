@@ -16,7 +16,7 @@ function PaginationComponent() {
 
   const { page, totalPages } = useSelector(state => state.imagesSearchReducer);
 
-  const onPageChange = (page) => {
+  const onPageChange = (event, page) => {
     dispatch(setPage(page));
   };
 

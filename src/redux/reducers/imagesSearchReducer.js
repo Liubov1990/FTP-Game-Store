@@ -4,7 +4,7 @@ const initialState = {
   gamesList: [],
   randomImagesList: {},
   page: 1,
-  totalPages: 1
+  totalPages: 1,
 };
 
 export const imagesSearchReducer = (state = initialState, action) => {
