@@ -11,7 +11,7 @@ export const SET_TOTAL_PAGES = "SET_TOTAL_PAGES";
 export const getGamesListAsync = () => {
   return async (dispatch, getState) => {
     const {
-      sortPanelReducer: { platformField, categoryField, orderField }
+      sortPanelReducer: { platformField, categoryField, orderField },
     } = getState();
     try {
       const { data } = await getGamesListRequest({ platformField, categoryField, orderField });
@@ -22,6 +22,7 @@ export const getGamesListAsync = () => {
       dispatch(getSpecificImageAsync(data));
       dispatch(setImages(data));
       dispatch(setTotalPages(pagesCount));
+      dispatch(setPage(1));
     } catch (error) {
       dispatch(showFailureSnackbar("Failure!"));
     }
