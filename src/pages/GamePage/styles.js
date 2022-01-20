@@ -103,6 +103,11 @@ export const styles = () => ({
       padding: "15px"
     }
   },
+  linkDecoration: {
+    "&:hover": {
+      textDecoration: "none",
+    },
+  },
   buttonRoot: {
     width: "180px",
     height: "38px",

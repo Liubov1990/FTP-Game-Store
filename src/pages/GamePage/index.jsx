@@ -60,7 +60,7 @@ function GamePage() {
               <div>
                 <h4>Publisher:</h4> {specificData?.publisher}
               </div>
-              <Link href={specificData?.game_url} target="_blank">
+              <Link href={specificData?.game_url} target="_blank" className={classes.linkDecoration}> 
                 <Button variant="contained" classes={{ root: classes.buttonRoot }}>
                   Play now
                 </Button>

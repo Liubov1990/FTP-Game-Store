@@ -89,9 +89,11 @@ export const styles = () => ({
     fontWeight: 400,
     color: "#ffffff",
     backgroundColor: "#8b0000",
+    textDecoration: "none",
     boxShadow: "none",
     "&:hover": {
-      color: "#8b0000"
+      color: "#8b0000",
+      textDecoration: "none",
     }
   },
   sliderBar: {

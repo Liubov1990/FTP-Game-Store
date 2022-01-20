@@ -13,13 +13,32 @@ export const styles = () => ({
     alignItems: "center",
     maxWidth: "1440px",
     height: "76px",
-    margin: "0 auto"
+    margin: "0 auto",
+    "& > a:visited": {
+      color: "#3f444e",
+    },
   },
   logo: {
     display: "inline-block",
     fontSize: "18px",
     textTransform: "uppercase",
-    fontWeight: 800
+    fontWeight: 800,
+    cursor: "pointer",
+  },
+  buttonRoot: {
+    width: "130px",
+    height: "38px",
+    fontFamily: "'Gothic A1', sans-serif",
+    fontSize: "14px",
+    fontWeight: 400,
+    color: "#ffffff",
+    backgroundColor: "#8b0000",
+    textDecoration: "none",
+    boxShadow: "none",
+    "&:hover": {
+      color: "#8b0000",
+      textDecoration: "none",
+    },
   },
   playIcon: {
     verticalAlign: "bottom"
