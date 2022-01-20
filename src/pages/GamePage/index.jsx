@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 // material-ui
-import { Button, Link } from "@material-ui/core";
+import { Button, Link, Chip } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 // components
 import Layout from "../../components/Layout";
@@ -60,7 +60,7 @@ function GamePage() {
               <div>
                 <h4>Publisher:</h4> {specificData?.publisher}
               </div>
-              <Link href={specificData?.game_url} target="_blank" className={classes.linkDecoration}> 
+              <Link href={specificData?.game_url} target="_blank" className={classes.linkDecoration}>
                 <Button variant="contained" classes={{ root: classes.buttonRoot }}>
                   Play now
                 </Button>
@@ -114,14 +114,11 @@ function GamePage() {
             )}
           </div>
         </div>
-        <div className={classes.reviewsSeсtion}>
-          <div className={classes.addReviews}></div>
-          <div className="similarGames">
-            <h2>Similar games</h2>
-            {similarGames?.map(({ id, name }) => (
-              <p key={id}>{name}</p>
-            ))}
-          </div>
+        <div className={classes.similarGames}>
+          <h2>Similar games</h2>
+          {similarGames?.map(({ id, name }) => (
+            <Chip key={id} label={name} classes={{ root: classes.chipRoot }} />
+          ))}
         </div>
       </div>
     </Layout>

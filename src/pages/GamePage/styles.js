@@ -80,28 +80,19 @@ export const styles = () => ({
       marginBottom: "5px"
     }
   },
-  reviewsSeсtion: {
+  similarGames: {
     maxWidth: "1440px",
     lineHeight: 1.5,
     padding: "40px 24px",
     margin: "0 auto"
   },
-  addReviews: {
-    display: "flex",
-    justifyContent: "space-between"
-  },
-  review: {
-    display: "flex",
-    justifyContent: "space-between",
-    marginTop: "15px",
-    "&>img": {
-      width: "40px",
-      height: "40px",
-      marginRight: "20px"
-    },
-    "& p": {
-      padding: "15px"
-    }
+  chipRoot: {
+    fontFamily: '"Gothic A1", sans-serif',
+    fontSize: "16px",
+    lineHeight: "24px",
+    color:" #3f444e",
+    marginRight: "15px",
+    marginBottom: "15px",
   },
   linkDecoration: {
     "&:hover": {
@@ -145,8 +136,5 @@ export const styles = () => ({
     systemRequirements: {
       minWidth: "100%"
     },
-    similarGames: {
-      color: "#8b0000"
-    }
-  }
+  },
 });
