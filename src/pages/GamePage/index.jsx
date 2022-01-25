@@ -94,31 +94,62 @@ function GamePage() {
             {specificData?.minimum_system_requirements ? (
               <>
                 <div>
-                  <h4>Os:</h4> {specificData?.minimum_system_requirements?.os}
+                  <h4>Os:</h4>{" "}
+                  {specificData?.minimum_system_requirements?.os === "?" ||
+                  specificData?.minimum_system_requirements?.os === null ||
+                  specificData?.minimum_system_requirements?.os === "Not defined"
+                    ? "Unavailable"
+                    : specificData?.minimum_system_requirements?.os}
                 </div>
                 <div>
-                  <h4>Processor:</h4> {specificData?.minimum_system_requirements?.processor}
+                  <h4>Processor:</h4>{" "}
+                  {specificData?.minimum_system_requirements?.processor === "?" ||
+                  specificData?.minimum_system_requirements?.processor === null ||
+                  specificData?.minimum_system_requirements?.processor === "Not defined"
+                    ? "Unavailable"
+                    : specificData?.minimum_system_requirements?.processor}
                 </div>
                 <div>
-                  <h4>Memory:</h4> <span>{specificData?.minimum_system_requirements?.memory}</span>
+                  <h4>Memory:</h4>{" "}
+                  <span>
+                    {specificData?.minimum_system_requirements?.memory === "?" ||
+                    specificData?.minimum_system_requirements?.memory === null ||
+                    specificData?.minimum_system_requirements?.memory === "Not defined"
+                      ? "Unavailable"
+                      : specificData?.minimum_system_requirements?.memory || "Unavailable"}
+                  </span>
                 </div>
                 <div>
-                  <h4>Graphics:</h4> <span>{specificData?.minimum_system_requirements?.graphics}</span>
+                  <h4>Graphics:</h4>{" "}
+                  <span>
+                    {specificData?.minimum_system_requirements?.graphics === "?" ||
+                    specificData?.minimum_system_requirements?.graphics === null ||
+                    specificData?.minimum_system_requirements?.graphics === "Not defined"
+                      ? "Unavailable"
+                      : specificData?.minimum_system_requirements?.graphics || "Unavailable"}
+                  </span>
                 </div>
                 <div>
-                  <h4>Storage:</h4> <span>{specificData?.minimum_system_requirements?.storage}</span>
+                  <h4>Storage:</h4>{" "}
+                  <span>
+                    {specificData?.minimum_system_requirements?.storage === "?" ||
+                    specificData?.minimum_system_requirements?.storage === null ||
+                    specificData?.minimum_system_requirements?.storage === "Not defined"
+                      ? "Unavailable"
+                      : specificData?.minimum_system_requirements?.storage}
+                  </span>
                 </div>
               </>
             ) : (
-              <p>Unfortunatelly there is no data about system requirements</p>
+              <p>System requirements are currently unavailable</p>
             )}
           </div>
         </div>
         <div className={classes.similarGames}>
           <h2>Similar games</h2>
-          {similarGames?.map(({ id, name }) => (
-            <Chip key={id} label={name} classes={{ root: classes.chipRoot }} />
-          ))}
+          {similarGames
+            ? similarGames?.map(({ id, name }) => <Chip key={id} label={name} classes={{ root: classes.chipRoot }} />)
+            : "No games in the list"}
         </div>
       </div>
     </Layout>
