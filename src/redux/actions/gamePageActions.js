@@ -12,7 +12,7 @@ export const getSpecificDataAsync = id => {
       dispatch(getVideoSearchAsync());
       dispatch(getGameDataAsync());
     } catch (error) {
-      // dispatch(setError());
+      // dispatch(setError(error));
     }
   };
 };

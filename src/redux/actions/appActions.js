@@ -1,11 +1,10 @@
-export const showFailureSnackbar = message => {
-  return dispatch => {
-    dispatch({ type: "SNACKBAR_FAILURE", message });
-  };
+export const SHOW_SNACKBAR_FAILURE = "SHOW_SNACKBAR_FAILURE";
+export const CLEAR_SNACKBAR_FAILURE = "CLEAR_SNACKBAR";
+
+export function showFailureSnackbar(message) {
+  return{ type: "SHOW_SNACKBAR_FAILURE", payload: message }
 };
 
-export const clearSnackbar = () => {
-  return dispatch => {
-    dispatch({ type: "SNACKBAR_CLEAR" });
-  };
+export function clearSnackbar(){
+  return { type: "CLEAR_SNACKBAR" };
 };

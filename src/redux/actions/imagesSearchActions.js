@@ -11,7 +11,7 @@ export const SET_TOTAL_PAGES = "SET_TOTAL_PAGES";
 export const getGamesListAsync = () => {
   return async (dispatch, getState) => {
     const {
-      sortPanelReducer: { platformField, categoryField, orderField },
+      sortPanelReducer: { platformField, categoryField, orderField }
     } = getState();
     try {
       const { data } = await getGamesListRequest({ platformField, categoryField, orderField });
@@ -25,6 +25,7 @@ export const getGamesListAsync = () => {
       dispatch(setPage(1));
     } catch (error) {
       dispatch(showFailureSnackbar("Failure!"));
+      // dispatch(setError(error));
     }
   };
 };
@@ -35,18 +36,19 @@ export const getSpecificImageAsync = data => {
 
     const getRandomImage = async () => {
       const randomImage = Math.floor(Math.random() * data.length - 1);
-      const randomImageId = data[randomImage].id;
+      const randomImageId = data[randomImage]?.id;
       try {
         const { data: imageData } = await getSpecificDataRequest(randomImageId);
-        
-        if (imageData.screenshots.length) {
+
+        if (imageData?.screenshots?.length) {
           return (randomImagesList = {
             ...randomImagesList,
-            [imageData.id]: imageData
+            [imageData?.id]: imageData
           });
         }
       } catch (error) {
-        console.error(error);
+        // dispatch(setError(error));
+        // console.error(error);
       }
     };
 

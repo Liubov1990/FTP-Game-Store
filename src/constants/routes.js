@@ -8,5 +8,5 @@ export const routing = [
     link: "/games/:id",
     page: "GamePage",
     exact: true
-  }
+  },
 ];

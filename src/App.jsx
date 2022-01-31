@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { routing } from "./constants";
 // components
 import FailureSnackbar from "./components/Snackbar";
+import NoPage from "./pages/NoPage";
 // styles
 import "./styles/reset.css";
 
@@ -25,6 +26,7 @@ function App() {
                 </Route>
               );
             })}
+            <Route component={NoPage}/>
           </Switch>
         </Router>
       </PersistGate>

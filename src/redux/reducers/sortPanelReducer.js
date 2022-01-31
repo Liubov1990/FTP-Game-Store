@@ -10,11 +10,11 @@ export const sortPanelReducer = (state = initialState, action) => {
   const { type, payload } = action;
   switch (type) {
     case SET_PLATFORM_VALUE:
-      return { ...state, platformField: action.payload };
+      return { ...state, platformField: payload };
     case SET_CATEGORY_VALUE:
-      return { ...state, categoryField: action.payload };
+      return { ...state, categoryField: payload };
     case SET_ORDER_VALUE:
-      return { ...state, orderField: action.payload };
+      return { ...state, orderField: payload };
     default: {
       return { ...state };
     }

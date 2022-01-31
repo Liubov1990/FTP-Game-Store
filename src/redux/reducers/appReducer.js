@@ -1,17 +1,20 @@
-export const appReducer = (state = {}, action) => {
-  switch (action.type) {
-    case "SNACKBAR_FAILURE":
+import {SHOW_SNACKBAR_FAILURE, CLEAR_SNACKBAR_FAILURE} from "./../actions/appActions"
+
+const initialState = {
+  failureSnackbarOpen: false,
+};
+export const appReducer = (state = initialState, action) => {
+  const { type } = action;
+  switch (type) {
+    case SHOW_SNACKBAR_FAILURE:
       return {
         ...state,
         failureSnackbarOpen: true,
       };
-    case "SNACKBAR_CLEAR":
+    case CLEAR_SNACKBAR_FAILURE:
       return {
         ...state,
-        successSnackbarOpen: false,
         failureSnackbarOpen: false,
-        errorSnackbarOpen: false,
-        infoSnackbarOpen: false
       };
     default:
       return state;

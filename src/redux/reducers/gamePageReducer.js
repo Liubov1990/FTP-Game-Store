@@ -10,11 +10,11 @@ export const gamePageReducer = (state = initialState, action) => {
   const { type, payload } = action;
   switch (type) {
     case SET_SPECIFIC_DATA:
-      return { ...state, specificData: action.payload };
+      return { ...state, specificData: payload };
     case SET_VIDEO_SOURCE:
-      return { ...state, videoSource: action.payload };
+      return { ...state, videoSource: payload };
     case SET_SIMILAR_GAMES:
-      return { ...state, similarGames: action.payload };
+      return { ...state, similarGames: payload };
     default: {
       return { ...state };
     }
