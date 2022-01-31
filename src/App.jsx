@@ -7,7 +7,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { routing } from "./constants";
 // components
 import FailureSnackbar from "./components/Snackbar";
-import NoPage from "./pages/NoPage";
+import NoPage from "./pages/PageNotFound";
 // styles
 import "./styles/reset.css";
 
