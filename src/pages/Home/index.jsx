@@ -14,7 +14,7 @@ const useStyles = makeStyles(styles);
 
 function Games() {
   const classes = useStyles();
-
+  
   function toTop() {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   }
