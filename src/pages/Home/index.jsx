@@ -13,14 +13,14 @@ import { styles } from "./styles";
 const useStyles = makeStyles(styles);
 
 function Games() {
-  const [showScrollUp, setShowScrollUp] = useState(false);
+  const [showButtonUp, setShowButtonUp] = useState(false);
   const classes = useStyles();
 
   useEffect(() => {
-    const handleScroll = () => setShowScrollUp(window.scrollY > 50);
-    window.addEventListener("scroll", handleScroll);
+    const handleButtonUp = () => setShowButtonUp(window.scrollY > 50);
+    window.addEventListener("scroll", handleButtonUp);
     return function cleanup() {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("scroll", handleButtonUp);
     };
   }, []);
 
@@ -33,7 +33,7 @@ function Games() {
       <Slider />
       <SortPanel />
       <GamesGrid />
-      <div className={`${classes.toTop} ${showScrollUp ? classes.toShow : ""}`} onClick={() => toTop()}>
+      <div className={`${classes.buttonUp} ${showButtonUp ? classes.toShow : ""}`} onClick={() => toTop()}>
         <ExpandLessIcon />
       </div>
     </Layout>

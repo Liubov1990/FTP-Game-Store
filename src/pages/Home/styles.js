@@ -1,5 +1,5 @@
 export const styles = () => ({
-  toTop: {
+  buttonUp: {
     position: "fixed",
     bottom: "24px",
     right: "24px",
