@@ -8,11 +8,17 @@ export const styles = () => ({
     background: "rgba(0, 0, 0, .5)",
     borderRadius: "4px",
     cursor: "pointer",
+    opacity: 0,
+    zIndex: 1000,
+    transition: "all .5s",
     "& svg": {
         position: "absolute",
         top: "5px",
         left: "6px",
         color: "#ffffff",
     }
+  },
+  toShow: {
+    opacity: 1
   }
 });
