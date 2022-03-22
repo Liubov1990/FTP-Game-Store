@@ -49,10 +49,11 @@ export const getGameDataAsync = () => {
     } = getState();
     try {
       const queryTitle = specificData.title;
-
       const {
         data: { results }
       } = await getGuidRequest(queryTitle);
+
+      console.log("queryTitle", queryTitle);
 
       const guid = results[0].guid;
 
