@@ -73,8 +73,8 @@ function Slider() {
         <div className={classes.sliderBarContent}>
           <div className={classes.movieInfo}>
             <div>
-              Published
-              <span>{randomImagesList[activeSlide]?.release_date}</span>
+              <span className={classes.published}>Published</span>
+              <span className={classes.releaseDate}>{randomImagesList[activeSlide]?.release_date}</span>
             </div>
           </div>
           <div className={classes.reviewInfo}>

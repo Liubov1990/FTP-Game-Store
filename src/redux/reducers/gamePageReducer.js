@@ -1,4 +1,9 @@
-import { SET_SPECIFIC_DATA, SET_VIDEO_SOURCE, SET_SIMILAR_GAMES } from "../actions/gamePageActions";
+import {
+  SET_SPECIFIC_DATA,
+  SET_VIDEO_SOURCE,
+  SET_SIMILAR_GAMES,
+  CLEAR_GAME_PAGE_STATE
+} from "../actions/gamePageActions";
 
 const initialState = {
   specificData: {},
@@ -15,6 +20,8 @@ export const gamePageReducer = (state = initialState, action) => {
       return { ...state, videoSource: payload };
     case SET_SIMILAR_GAMES:
       return { ...state, similarGames: payload };
+    case CLEAR_GAME_PAGE_STATE:
+      return { initialState };
     default: {
       return { ...state };
     }

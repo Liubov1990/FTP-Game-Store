@@ -12,15 +12,12 @@ export const styles = () => ({
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
     width: "100%",
-    minHeight: "500px",
-    transition: "all 1s ease-in"
+    minHeight: "500px"
   },
-
   contentWrapper: {
     maxWidth: "1440px",
     margin: "0 auto"
   },
-
   sliderButtonGroup: {
     position: "absolute",
     top: "175px",
@@ -93,7 +90,7 @@ export const styles = () => ({
     boxShadow: "none",
     "&:hover": {
       color: "#8b0000",
-      textDecoration: "none",
+      textDecoration: "none"
     }
   },
   sliderBar: {
@@ -126,11 +123,13 @@ export const styles = () => ({
     alignItems: "center",
     "&>div": {
       marginRight: "25px"
-    },
-    "&>div>span": {
-      color: "#8b0000",
-      marginLeft: "10px"
     }
+  },
+  published: {
+    marginRight: "10px"
+  },
+  releaseDate: {
+    color: "#8b0000"
   },
   reviewInfo: {
     display: "flex",
@@ -145,5 +144,40 @@ export const styles = () => ({
   svgRoot: {
     fill: "#8b0000",
     marginRight: "10px"
-  }
+  },
+  "@media(max-width: 768px)": {
+    slider: {
+      minHeight: "350px"
+    },
+    sliderItem: {
+      minHeight: "350px"
+    },
+    sliderButtonGroup: {
+      top: "40px",
+      left: "40px"
+    },
+    watchNow: {
+      top: "150px",
+      left: 0,
+      width: "200px"
+    },
+    movieLogo: {
+      width: "200px",
+      height: "75px"
+    },
+    releaseDate: {
+        display: "inline-block",
+        marginTop: "5px"
+    },
+    reviewInfo: {
+      "&>div": {
+        marginLeft: "10px"
+      }
+    },
+    svgRoot: {
+      width: "0.75em",
+      height: "0.75em",
+      marginRight: "2px"
+    }
+  },
 });

@@ -7,7 +7,7 @@ import { makeStyles } from "@material-ui/core/styles";
 // components
 import Layout from "../../components/Layout";
 // actions
-import { getSpecificDataAsync, getVideoSearchAsync, getGameDataAsync } from "../../redux/actions/gamePageActions";
+import { getSpecificDataAsync, getVideoSearchAsync, getGameDataAsync, clearGamePageState } from "../../redux/actions/gamePageActions";
 // styles
 import { styles } from "./styles";
 
@@ -25,6 +25,10 @@ function GamePage() {
     dispatch(getSpecificDataAsync(id));
     dispatch(getVideoSearchAsync());
     dispatch(getGameDataAsync());
+
+    return function cleanUp() {
+      dispatch(clearGamePageState());
+    }
   }, []);
 
   return (
@@ -32,17 +36,18 @@ function GamePage() {
       <div className={classes.gameInfo}>
         <div className={classes.shortDetails}>
           <div className={classes.videoWrapper}>
-            <video
+            { videoSource ? <video
               src={videoSource}
-              // autoPlay
               controls
+              autoPlay
+              muted
             ></video>
-            {!videoSource && <p>Trere is no video for this game :(</p>}
+            : <img src={specificData?.thumbnail} alt="" className={classes.image} />}
           </div>
           <div className={classes.glance}>
-            <img src={specificData?.thumbnail} alt="" className={classes.image} />
+          { videoSource && <img src={specificData?.thumbnail} alt="" className={classes.image} />}
             <div className={classes.glanceInfo}>
-              <div>
+              <div className={classes.shortDescription}>
                 <h4>Short description:</h4> {specificData?.short_description}
               </div>
               <div>

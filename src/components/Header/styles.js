@@ -2,7 +2,6 @@ export const styles = () => ({
   rootPaper: {
     minHeight: "76px",
     padding: "0 24px",
-
     "&.MuiPaper-elevation1": {
       boxShadow: "none"
     }
@@ -19,11 +18,13 @@ export const styles = () => ({
     },
   },
   logo: {
-    display: "inline-block",
     fontSize: "18px",
     textTransform: "uppercase",
     fontWeight: 800,
     cursor: "pointer",
+  },
+  noBereak: {
+    display: "inline-block",
   },
   buttonRoot: {
     width: "130px",
@@ -96,5 +97,8 @@ export const styles = () => ({
     "&::before": {
       backgroundColor: "#8b0000"
     }
+  },
+  "@media(max-width: 425px)": {
+
   }
 });

@@ -1,4 +1,4 @@
-import {sixCols, fourCols, fourColsSlim, threeCols} from "../../constants/gridCols.js";
+import { sixCols, fourCols, fourColsSlim, threeCols } from "../../constants/gridCols.js";
 
 export const styles = () => ({
   gridContainer: {
@@ -118,8 +118,7 @@ export const styles = () => ({
   "@media(max-width: 768px)": {
     gridContainer: {
       gridTemplateColumns: threeCols,
-      gridAutoRows: "65px",
-
+      gridAutoRows: "60px",
       "&>div:nth-of-type(6)": {
         gridColumn: "startline / 3",
         gridRow: "3 / 5"

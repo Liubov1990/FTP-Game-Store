@@ -3,6 +3,7 @@ import { getSpecificDataRequest, getVideoSearchRequest, getGuidRequest, getGameD
 export const SET_SPECIFIC_DATA = "SET_SPECIFIC_DATA";
 export const SET_VIDEO_SOURCE = "SET_VIDEO_SOURCE";
 export const SET_SIMILAR_GAMES = "SET_SIMILAR_GAMES";
+export const CLEAR_GAME_PAGE_STATE = "CLEAR_GAME_PAGE_STATE";
 
 export const getSpecificDataAsync = id => {
   return async dispatch => {
@@ -87,5 +88,11 @@ export const setSimilarGames = similarGames => {
   return {
     type: "SET_SIMILAR_GAMES",
     payload: similarGames
+  };
+};
+
+export const clearGamePageState = () => {
+  return { 
+    type: "CLEAR_GAME_PAGE_STATE",
   };
 };

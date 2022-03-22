@@ -37,10 +37,14 @@ export const styles = () => ({
   },
   glanceInfo: {
     padding: "20px 15px",
+    textAlign: "left",
     "&>div": {
       lineHeight: 1.5,
       marginBottom: "5px"
     }
+  },
+  shortDescription: {
+    textAlign: "justify",
   },
   description: {
     maxWidth: "1440px",
@@ -68,6 +72,7 @@ export const styles = () => ({
   },
   systemRequirements: {
     minWidth: "37%",
+    textAlign: "left",
     color: "#ffffff",
     background: "rgba(0.5, 0.5, 0.5, .4)",
     padding: "20px 15px",

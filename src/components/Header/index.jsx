@@ -22,11 +22,11 @@ function Header() {
     >
       <div className={classes.paperContent}>
         <Link to={`/`}>
-          <span className={classes.logo}>
-            FTP Game St
+          <div className={classes.logo}>
+            FTP Game <span className={classes.noBereak}>St
             <GpsFixedIcon classes={{ root: classes.playIcon }} />
-            re
-          </span>
+            re</span>
+          </div>
         </Link>
         {location.pathname !== "/" && (
           <Link to={`/`}>
