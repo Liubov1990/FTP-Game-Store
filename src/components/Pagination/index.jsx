@@ -21,7 +21,7 @@ function PaginationComponent() {
   };
 
   return (
-    <div>
+    <div >
       <Pagination
         onChange={onPageChange}
         page={page}
