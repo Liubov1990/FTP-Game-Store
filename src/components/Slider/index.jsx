@@ -26,11 +26,26 @@ function Slider() {
   const [activeSlide, setActiveSlide] = React.useState(null);
 
   useEffect(() => {
-    setActiveSlide(`${Object.keys(randomImagesList)[0]}`);
+    const sliderInterval = setInterval(autoChange, 5000);
+    return function cleanup() {
+      clearInterval(sliderInterval);
+    }
+  }, [activeSlide])
+
+  useEffect(() => {
+    if (Object.keys(randomImagesList).length) {
+      setActiveSlide(`${Object.keys(randomImagesList)[0]}`);
+    }
   }, [randomImagesList]);
 
   const handleChange = event => {
     setActiveSlide(event.target.value);
+  };
+
+  const autoChange = () => {
+    const curentSlideIndex = radioContent.findIndex(({id}) => id === activeSlide);
+    const nextSlideindex = radioContent.length - 1 === curentSlideIndex ? 0 : curentSlideIndex + 1;
+    setActiveSlide(`${Object.keys(randomImagesList)[nextSlideindex]}`);
   };
 
   return (

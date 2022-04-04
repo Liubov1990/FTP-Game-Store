@@ -49,7 +49,7 @@ export const getGameDataAsync = () => {
       gamePageReducer: { specificData }
     } = getState();
     try {
-      const queryTitle = specificData.title;
+      const queryTitle = specificData?.title;
       const {
         data: { results }
       } = await getGuidRequest(queryTitle);
