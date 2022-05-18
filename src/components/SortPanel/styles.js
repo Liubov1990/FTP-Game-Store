@@ -20,7 +20,13 @@ export const styles = () => ({
   formControl: {
     minWidth: "200px",
     marginRight: "50px",
-    marginBottom: "15px"
+    marginBottom: "15px",
+    "& .MuiFormLabel-root.Mui-focused": {
+      color: "#8b0000"
+    },
+    "& .MuiInput-underline:after": {
+      borderColor: "#8b0000"
+    }
   },
   buttonRoot: {
     with: "118px",
@@ -35,5 +41,13 @@ export const styles = () => ({
       color: "#8b0000",
       backgroundColor: "#ffffff"
     }
+  },
+  "@media(max-width: 576px)": {
+    formControl: {
+      marginBottom: "10px",
+      "& .MuiInputBase-root": {
+        fontSize: "0.85rem"
+      }
+    },
   }
 });

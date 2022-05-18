@@ -1,18 +1,22 @@
 import { getSpecificDataRequest, getVideoSearchRequest, getGuidRequest, getGameDataRequest } from "../../api";
 
 export const SET_SPECIFIC_DATA = "SET_SPECIFIC_DATA";
+export const SET_SPECIFIC_DATA_PENDING = "SET_SPECIFIC_DATA_PENDING";
+export const SET_SPECIFIC_DATA_FAILURE = "SET_SPECIFIC_DATA_FAILURE";
 export const SET_VIDEO_SOURCE = "SET_VIDEO_SOURCE";
 export const SET_SIMILAR_GAMES = "SET_SIMILAR_GAMES";
 export const CLEAR_GAME_PAGE_STATE = "CLEAR_GAME_PAGE_STATE";
 
 export const getSpecificDataAsync = id => {
   return async dispatch => {
+    dispatch(setSpecificDataPending());
     try {
       const { data } = await getSpecificDataRequest(id);
       dispatch(setSpecificData(data));
       dispatch(getVideoSearchAsync());
       dispatch(getGameDataAsync());
     } catch (error) {
+      dispatch(setSpecificDataFailure());
       // dispatch(setError(error));
     }
   };
@@ -24,7 +28,9 @@ export const getVideoSearchAsync = () => {
       gamePageReducer: { specificData }
     } = getState();
     try {
-      const queryTitle = specificData.title;
+      const queryTitle = specificData?.title.length ? specificData?.title : "";
+      // const queryTitle = specificData?.title;
+      console.log(queryTitle, "queryTitle 1");
 
       const {
         data: { results }
@@ -43,25 +49,29 @@ export const getVideoSearchAsync = () => {
     }
   };
 };
+
 export const getGameDataAsync = () => {
   return async (dispatch, getState) => {
     const {
       gamePageReducer: { specificData }
     } = getState();
     try {
-      const queryTitle = specificData?.title;
+      const queryTitle = specificData?.title?.length ? specificData?.title : "";
+      // const queryTitle = specificData?.title;
+      console.log(queryTitle, "queryTitle 2");
+
       const {
         data: { results }
       } = await getGuidRequest(queryTitle);
 
-      console.log("queryTitle", queryTitle);
+      // console.log(queryTitle, "queryTitle 3");
 
-      const guid = results[0].guid;
+      const guid = results[0]?.guid;
 
       const gameData = await getGameDataRequest(guid);
       
-      const gameDataResults = gameData.data.results;
-      const similarGames = gameDataResults.similar_games;
+      const gameDataResults = gameData?.data.results;
+      const similarGames = gameDataResults?.similar_games;
 
       dispatch(setSimilarGames(similarGames));
     } catch (error) {
@@ -74,6 +84,18 @@ export const setSpecificData = specificData => {
   return {
     type: "SET_SPECIFIC_DATA",
     payload: specificData
+  };
+};
+
+export const setSpecificDataPending = () => {
+  return {
+    type: "SET_SPECIFIC_DATA_PENDING"
+  };
+};
+
+export const setSpecificDataFailure = () => {
+  return {
+    type: "SET_SPECIFIC_DATA_FAILURE"
   };
 };
 

@@ -1,4 +1,15 @@
 export const styles = () => ({
+  loadingWrapper: {
+    display: "flex",
+    justifyContent: "center",
+    minHeight: "calc(100vh - 76px)"
+  },
+  root: {
+    alignSelf: "center",
+  },
+  colorPrimary: {
+    color: "rgba(0, 0, 0, .5)",
+  },
   gameInfo: {
     width: "100%",
     textAlign: "justify",
@@ -44,7 +55,7 @@ export const styles = () => ({
     }
   },
   shortDescription: {
-    textAlign: "justify",
+    textAlign: "justify"
   },
   description: {
     maxWidth: "1440px",
@@ -60,15 +71,12 @@ export const styles = () => ({
     padding: "40px 24px"
   },
   screenshots: {
-    position: "relative",
+    display: "flex",
+    flexDirection: "column",
     minWidth: "60%",
-    minHeight: "450px",
+    // minHeight: "450px",
+    height: "auto",
     marginRight: "3%"
-  },
-  screenshotImage: {
-    position: "absolute",
-    top: 0,
-    left: 0
   },
   systemRequirements: {
     minWidth: "37%",
@@ -95,14 +103,14 @@ export const styles = () => ({
     fontFamily: '"Gothic A1", sans-serif',
     fontSize: "16px",
     lineHeight: "24px",
-    color:" #3f444e",
+    color: " #3f444e",
     marginRight: "15px",
-    marginBottom: "15px",
+    marginBottom: "15px"
   },
   linkDecoration: {
     "&:hover": {
-      textDecoration: "none",
-    },
+      textDecoration: "none"
+    }
   },
   buttonRoot: {
     width: "180px",
@@ -135,11 +143,12 @@ export const styles = () => ({
     },
     screenshots: {
       minWidth: "100%",
-      marginBottom: "20px",
+      // minHeight: "450px",
+      // marginBottom: "20px",
       marginRight: 0
     },
     systemRequirements: {
       minWidth: "100%"
-    },
-  },
+    }
+  }
 });

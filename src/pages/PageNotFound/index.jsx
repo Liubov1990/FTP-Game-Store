@@ -3,23 +3,15 @@ import { makeStyles } from "@material-ui/core/styles";
 // components
 import Layout from "../../components/Layout";
 // styles
-import { styles } from "./styles";
+import { errorStyles } from "./styles";
 
-const useStyles = makeStyles(styles);
+const useStyles = makeStyles(errorStyles);
 
 function NoPage() {
+  const classes = useStyles();
   return (
     <Layout>
-        <div
-          style={{
-            backgroundImage: "url(/images/page_not_found.png)",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
-            width: "100%",
-            height: "calc(100vh - 76px)"
-          }}
-        ></div>
+      <div className={classes.errorView}></div>
     </Layout>
   );
 }

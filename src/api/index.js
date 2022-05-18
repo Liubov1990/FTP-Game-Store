@@ -15,14 +15,14 @@ export function getGamesListRequest({ platformField, categoryField, orderField }
   });
 }
 
-export function getSpecificDataRequest(id) {
+export function getSpecificDataRequest(id) {  
   return axios.get(`${API_LINK}/game`, {
     headers: {
       "x-rapidapi-host": "free-to-play-games-database.p.rapidapi.com",
       "x-rapidapi-key": API_KEY
     },
     params: {
-      id: id
+      id: Number(id)
     }
   });
 }

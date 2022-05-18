@@ -29,8 +29,8 @@ function Slider() {
     const sliderInterval = setInterval(autoChange, 5000);
     return function cleanup() {
       clearInterval(sliderInterval);
-    }
-  }, [activeSlide])
+    };
+  }, [activeSlide]);
 
   useEffect(() => {
     if (Object.keys(randomImagesList).length) {
