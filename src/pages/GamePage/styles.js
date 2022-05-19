@@ -1,21 +1,10 @@
 export const styles = () => ({
-  loadingWrapper: {
-    display: "flex",
-    justifyContent: "center",
-    minHeight: "calc(100vh - 76px)"
-  },
-  root: {
-    alignSelf: "center",
-  },
-  colorPrimary: {
-    color: "rgba(0, 0, 0, .5)",
-  },
   gameInfo: {
     width: "100%",
     textAlign: "justify",
     margin: "0 auto"
   },
-  shortDetails: {
+  shortGameInfo: {
     display: "flex",
     justifyContent: "space-between",
     color: "#ffffff",
@@ -57,12 +46,6 @@ export const styles = () => ({
   shortDescription: {
     textAlign: "justify"
   },
-  description: {
-    maxWidth: "1440px",
-    lineHeight: 1.5,
-    padding: "40px 24px",
-    margin: "0 auto"
-  },
   requirements: {
     display: "flex",
     justifyContent: "space-between",
@@ -93,20 +76,6 @@ export const styles = () => ({
       marginBottom: "5px"
     }
   },
-  similarGames: {
-    maxWidth: "1440px",
-    lineHeight: 1.5,
-    padding: "40px 24px",
-    margin: "0 auto"
-  },
-  chipRoot: {
-    fontFamily: '"Gothic A1", sans-serif',
-    fontSize: "16px",
-    lineHeight: "24px",
-    color: " #3f444e",
-    marginRight: "15px",
-    marginBottom: "15px"
-  },
   linkDecoration: {
     "&:hover": {
       textDecoration: "none"
@@ -127,7 +96,7 @@ export const styles = () => ({
     }
   },
   "@media (max-width: 768px)": {
-    shortDetails: {
+    shortGameInfo: {
       flexDirection: "column"
     },
     videoWrapper: {

@@ -25,11 +25,11 @@ export const getSpecificDataAsync = id => {
 export const getVideoSearchAsync = () => {
   return async (dispatch, getState) => {
     const {
-      gamePageReducer: { specificData }
+      gamePageReducer: { gameDetails }
     } = getState();
     try {
-      const queryTitle = specificData?.title.length ? specificData?.title : "";
-      // const queryTitle = specificData?.title;
+      const queryTitle = gameDetails?.title.length ? gameDetails?.title : "";
+      // const queryTitle = gameDetails?.title;
       console.log(queryTitle, "queryTitle 1");
 
       const {
@@ -53,11 +53,11 @@ export const getVideoSearchAsync = () => {
 export const getGameDataAsync = () => {
   return async (dispatch, getState) => {
     const {
-      gamePageReducer: { specificData }
+      gamePageReducer: { gameDetails }
     } = getState();
     try {
-      const queryTitle = specificData?.title?.length ? specificData?.title : "";
-      // const queryTitle = specificData?.title;
+      const queryTitle = gameDetails?.title?.length ? gameDetails?.title : "";
+      // const queryTitle = gameDetails?.title;
       console.log(queryTitle, "queryTitle 2");
 
       const {
@@ -80,10 +80,10 @@ export const getGameDataAsync = () => {
   };
 };
 
-export const setSpecificData = specificData => {
+export const setSpecificData = gameDetails => {
   return {
     type: "SET_SPECIFIC_DATA",
-    payload: specificData
+    payload: gameDetails
   };
 };
 

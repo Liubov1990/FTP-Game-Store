@@ -8,7 +8,7 @@ import {
 } from "../actions/gamePageActions";
 
 const initialState = {
-  specificData: {},
+  gameDetails: {},
   videoSource: "",
   similarGames: [],
   status: "NOT_ASKED"
@@ -18,7 +18,7 @@ export const gamePageReducer = (state = initialState, action) => {
   const { type, payload } = action;
   switch (type) {
     case SET_SPECIFIC_DATA:
-      return { ...state, specificData: payload, status: "SUCCESS" };
+      return { ...state, gameDetails: payload, status: "SUCCESS" };
     case SET_SPECIFIC_DATA_PENDING:
       return { ...state, status: "PENDING" };
     case SET_SPECIFIC_DATA_FAILURE:

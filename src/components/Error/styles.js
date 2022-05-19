@@ -1,5 +1,5 @@
 export const errorStyles = () => ({
-    errorView: {
+    error: {
         backgroundImage: "url(/images/page_not_found.png)",
         backgroundSize: "cover",
         backgroundPosition: "center",

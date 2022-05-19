@@ -1,19 +1,15 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-// components
-import Layout from "../../components/Layout";
 // styles
 import { errorStyles } from "./styles";
 
 const useStyles = makeStyles(errorStyles);
 
-function NoPage() {
+function Error() {
   const classes = useStyles();
+
   return (
-    <Layout>
-      <div className={classes.errorView}></div>
-    </Layout>
+      <div className={classes.error}></div>
   );
 }
-
-export default NoPage;
+export default Error;

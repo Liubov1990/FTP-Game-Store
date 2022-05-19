@@ -16,14 +16,14 @@ const useStyles = makeStyles(styles);
 function ThumbnailSlider() {
   const classes = useStyles();
 
-  const { specificData } = useSelector(state => state.gamePageReducer);
-  const screenshotsArr = specificData?.screenshots;
-  const firstSliderImage = specificData?.screenshots?.length ? specificData?.screenshots[0]?.image : null;
+  const { gameDetails } = useSelector(state => state.gamePageReducer);
+  const screenshotsArr = gameDetails?.screenshots;
+  const firstSliderImage = gameDetails?.screenshots?.length ? gameDetails?.screenshots[0]?.image : null;
   const [sliderImage, setSliderImage] = React.useState(null);
 
   useEffect(() => {
-    if (specificData?.screenshots?.length) {
-      setSliderImage(specificData?.screenshots[0].image);
+    if (gameDetails?.screenshots?.length) {
+      setSliderImage(gameDetails?.screenshots[0].image);
     }
   }, [firstSliderImage]);
 
@@ -33,16 +33,16 @@ function ThumbnailSlider() {
     });
     if (arrow === "next") {
       return currImgIndex === screenshotsArr.length - 1
-        ? setSliderImage(specificData?.screenshots[0].image)
-        : setSliderImage(specificData?.screenshots[currImgIndex + 1].image);
+        ? setSliderImage(gameDetails?.screenshots[0].image)
+        : setSliderImage(gameDetails?.screenshots[currImgIndex + 1].image);
     }
 
-    return currImgIndex === 0 ? setSliderImage(specificData?.screenshots[screenshotsArr.length - 1].image) : setSliderImage(specificData?.screenshots[currImgIndex - 1].image);
+    return currImgIndex === 0 ? setSliderImage(gameDetails?.screenshots[screenshotsArr.length - 1].image) : setSliderImage(gameDetails?.screenshots[currImgIndex - 1].image);
   };
 
   return (
     <>
-      {specificData?.screenshots?.length !== 0 ? (
+      {gameDetails?.screenshots?.length !== 0 ? (
         <>
           <div
             className={classes.frontImage}
@@ -51,7 +51,7 @@ function ThumbnailSlider() {
             }}
           />
           <div className={classes.thumbnailImages}>
-            {specificData?.screenshots?.map(({ id, image }) => (
+            {gameDetails?.screenshots?.map(({ id, image }) => (
               <div
                 key={id}
                 style={{
@@ -61,7 +61,7 @@ function ThumbnailSlider() {
                 }}
                 className={`${classes.thumbnailImage} ${sliderImage === image && classes.activeThumbnailImage}`}
                 onClick={() => setSliderImage(image)}
-                data-position={specificData?.screenshots}
+                data-position={gameDetails?.screenshots}
               />
             ))}
           </div>
