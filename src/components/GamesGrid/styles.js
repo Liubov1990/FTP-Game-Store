@@ -7,8 +7,7 @@ export const styles = () => ({
     gridTemplateColumns: sixCols,
     gridAutoRows: "120px",
     gridAutoFlow: "dense",
-    background: "rgb(0,0,0)",
-    background: "linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(139,0,0,1) 50%, rgba(0,0,0,1) 100%)",
+    background: "linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(139, 0, 0, 1) 50%, rgba(0, 0, 0, 1) 100%)",
     padding: "10px 24px",
     "&>div:nth-of-type(1)": {
       gridColumn: "startline / 3"
@@ -65,6 +64,7 @@ export const styles = () => ({
     padding: "4px 0",
     zIndex: 100
   },
+
   "@media(max-width: 1440px)": {
     gridContainer: {
       gridTemplateColumns: fourCols,
@@ -109,12 +109,14 @@ export const styles = () => ({
       }
     }
   },
+
   "@media(max-width: 1024px)": {
     gridContainer: {
       gridTemplateColumns: fourColsSlim,
       gridAutoRows: "90px"
     }
   },
+
   "@media(max-width: 768px)": {
     gridContainer: {
       gridTemplateColumns: threeCols,
@@ -147,6 +149,7 @@ export const styles = () => ({
         gridColumn: "2 / endline"
       }
     },
+    
     "@media(max-width: 425px)": {
       gridContainer: {
         gridTemplateColumns: "1fr",

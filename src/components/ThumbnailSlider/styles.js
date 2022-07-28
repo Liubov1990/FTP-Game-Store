@@ -1,97 +1,57 @@
 export const styles = () => ({
-  frontImage: {
+  thumbnailSlider: {
+    // start reactCarouselOverride
+    "& .thumbs-wrapper": {
+      marginBottom: 0
+    },
+    "& .carousel .thumb": {
+      padding: 0,
+      border: "none",
+      borderRadius: "4px",
+      marginTop: "1px",
+    },
+    "& .carousel .thumb:nth-child(1)": {
+      marginLeft: "1px",
+    },
+    "& .carousel .thumbs .selected": {
+      boxSizing: "border-box",
+      outline: "1px solid #ffffff",
+    },
+    "& .carousel .thumbs img": {
+      maxHeight: "45px",
+    },
+    // end reactCarouselOverride
+  },
+  resizedImage: {
     backgroundSize: "cover",
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
     width: "100%",
     height: "100%",
-    minHeight: "350px",
-    marginBottom: "30px",
+    minHeight: "500px",
   },
-  thumbnailImages: {
-    display: "flex",
-    flexWrap: "nowrap",
-    justifyContent: "center",
-    // width: "100%",
-    // height: "120px",
-    height: "100%",
-    margin: "0 30px 0 25px",
-    boxSizing: "border-box",
-    overflow: "hidden"
-  },
-  thumbnailImage: {
-    // display: "flex",
-    // width: "25%",
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    backgroundRepeat: "no-repeat",
-    width: "160px",
-    minWidth: "160px",
-    height: "90px",
-    borderRadius: "4px",
-    margin: "0 10px"
-  },
-  activeThumbnailImage: {
-    border: "2px solid white",
-    boxSizing: "border-box"
-  },
-  controls: {
-    position: "relative",
-    display: "flex",
-    flexWrap: "nowrap",
-    "& .MuiSvgIcon-root": {
-      fill: "white"
-    }
-  },
-  prevBtn: {
-    position: "absolute",
-    top: "-60px"
-  },
-  nextBtn: {
-    position: "absolute",
-    top: "-60px",
-    right: "-5px"
-  },
+
   "@media (min-width: 2560px)": {
-    frontImage: {
+    resizedImage: {
       minHeight: "750px"
     }
   },
-  "@media (min-width: 1440px)": {
-    controls: {
-      // display: "none"
-    },
-    thumbnailImages: {
-      justifyContent: "center"
-    }
-  },
+
   "@media (max-width: 768px)": {
-    frontImage: {
+    thumbnailSlider: {
+      "& .thumbs-wrapper": {
+        marginBottom: "30px",
+      },
+    },
+    resizedImage: {
       minHeight: "300px",
-      height: "auto"
+      height: "auto",
     },
-    thumbnailImages: {
-      marginRight: "20px",
-      marginLeft: "15px",
-      marginBottom: "20px"
-    },
-    thumbnailImage: {
-      // minWidth: "148px",
-      minWidth: "110px",
-      height: "70px",
-      marginRight: "5px",
-      marginLeft: "5px"
-    },
-    prevBtn: {
-      top: "-75px"
-    },
-    nextBtn: {
-      top: "-75px"
-    }
   },
-  "@media (max-width: 425px)": {
-    frontImage: {
+
+  "@media (max-width: 426px)": {
+    resizedImage: {
       minHeight: "200px"
-    }
+    },
   }
 });

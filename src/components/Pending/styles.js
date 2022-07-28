@@ -2,7 +2,7 @@ export const styles = () => ({
   loadingWrapper: {
     display: "flex",
     justifyContent: "center",
-    minHeight: "calc(100vh - 76px)"
+    height: "100%"
   },
   root: {
     alignSelf: "center"

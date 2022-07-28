@@ -14,8 +14,6 @@ import SimilarGames from "../../components/SimilarGames";
 // actions
 import {
   getSpecificDataAsync,
-  getVideoSearchAsync,
-  getGameDataAsync,
   clearGamePageState
 } from "../../redux/actions/gamePageActions";
 // styles
@@ -26,15 +24,13 @@ const useStyles = makeStyles(styles);
 function GamePage() {
   const classes = useStyles();
   const dispatch = useDispatch();
-
-  const { status } = useSelector(state => state.gamePageReducer);
-
   const { id } = useParams();
 
+  const { status, gameDetails } = useSelector(state => state.gamePageReducer);
+  
   useEffect(() => {
+    
     dispatch(getSpecificDataAsync(id));
-    dispatch(getVideoSearchAsync());
-    dispatch(getGameDataAsync());
 
     return function cleanUp() {
       dispatch(clearGamePageState());
@@ -43,9 +39,7 @@ function GamePage() {
 
   return (
     <Layout>
-      {status === "PENDING" && (
-        <Pending />
-      )}
+      {status === "PENDING" && <Pending />}
       {status === "FAILURE" && <Error />}
       {status === "SUCCESS" && (
         <div className={classes.gameInfo}>
@@ -58,5 +52,4 @@ function GamePage() {
     </Layout>
   );
 }
-
 export default GamePage;

@@ -39,5 +39,4 @@ function Header() {
     </Paper>
   );
 }
-
 export default Header;

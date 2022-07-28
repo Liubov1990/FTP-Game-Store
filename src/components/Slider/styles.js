@@ -2,78 +2,51 @@ export const styles = () => ({
   slider: {
     position: "relative",
     width: "100%",
-    minHeight: "500px"
+    height: "425px",
+    // start reactCarouselOverride
+    "& .carousel-root .carousel .control-dots": {
+      top: "145px",
+      width: "auto",
+      display: "flex",
+      flexDirection: "column",
+    },
+    // end reactCarouselOverride
   },
   sliderItem: {
-    position: "absolute",
-    top: 0,
-    left: 0,
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    backgroundRepeat: "no-repeat",
-    width: "100%",
-    minHeight: "500px"
+    maxHeight: "425px",
   },
   contentWrapper: {
     maxWidth: "1440px",
-    margin: "0 auto"
+    margin: "0 auto",
   },
-  sliderButtonGroup: {
-    position: "absolute",
-    top: "175px",
-    left: "30px",
-    zIndex: 100,
-    "& .MuiSvgIcon-root": {
-      fill: "#edeff0",
-      width: "10px",
-      height: "10px",
-      background: "#edeff0",
-      borderRadius: "50%"
-    },
-    "& .MuiFormControlLabel-root": {
-      height: "20px",
-      marginBottom: "9px",
-      "& .MuiIconButton-label .MuiSvgIcon-root:last-child": {
-        color: "#8b0000"
-      }
-    },
-    "& .MuiRadio-colorSecondary.Mui-checked": {
-      color: "transparent",
-      background: "url(./images/dot.png) center no-repeat",
-      width: "20px",
-      height: "20px",
-      left: "-3px",
-      marginRight: "2px",
-      "& .MuiIconButton-label": {
-        display: "none"
-      }
-    }
+  indicatorWrap: {
+    display: "flex",
+    alignItems: "center"
   },
-  label: {
-    fontFamily: "'Gothic A1', sans-serif",
+  title: {
     color: "#ffffff",
+    width: "100%",
     background: "rgba(0,0,0,.5)",
     borderRadius: "4px",
     boxShadow: "7px 6px 7px rgba(0,0,0,.5)",
-    padding: "0 5px",
-    marginLeft: "4px"
+    whiteSpace: "nowrap",
+    padding: "5px",
+    marginLeft: "7px",
   },
-  radioRoot: {
-    color: "#ffffff"
-  },
-  watchNow: {
+  playNow: {
     position: "absolute",
-    top: "165px",
+    top: "145px",
     right: "12px",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
     width: "310px",
+    zIndex: "1000",
     "& > a:hover": {
       textDecoration: "none"
     }
   },
-  movieLogo: {
+  gameLogo: {
     width: "300px",
     height: "100px",
     display: "inline-block"
@@ -81,9 +54,7 @@ export const styles = () => ({
   buttonRoot: {
     width: "118px",
     height: "38px",
-    fontFamily: "'Gothic A1', sans-serif",
-    fontSize: "14px",
-    fontWeight: 400,
+    fontFamily: "'Iceland', cursive",
     color: "#ffffff",
     backgroundColor: "#8b0000",
     textDecoration: "none",
@@ -95,89 +66,131 @@ export const styles = () => ({
   },
   sliderBar: {
     position: "absolute",
+    bottom: 0,
     display: "flex",
     justifyContent: "center",
     width: "100%",
     minHeight: "49px",
     height: "49px",
-    position: "absolute",
-    bottom: 0,
     textTransform: "uppercase",
-    fontSize: "14px",
+    fontSize: ".75em",
     color: "#ffffff",
-    borderTop: "1px solid rgba(115,115,115, 0.2)",
-    background: "rgba(0,0,0,.5)",
-    zIndex: 100,
+    background: "rgba(0, 0, 0, .7)",
+    overflow: "hidden",
     padding: "0 24px",
     boxSizing: "border-box",
-    overflow: "hidden"
+    zIndex: 100,
   },
   sliderBarContent: {
-    width: "1440px",
     display: "flex",
-    justifyContent: "space-between"
+    justifyContent: "space-between",
+    width: "1440px",
   },
-  movieInfo: {
+  publicationInfo: {
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    "&>div": {
-      marginRight: "25px"
-    }
+    lineHeight: 0.7,
   },
   published: {
     marginRight: "10px"
   },
   releaseDate: {
-    color: "#8b0000"
+    fontWeight: 900,
+    textShadow: "1px 1px 1px #000000",
+    color: "#8b0000",
+    marginTop: "0"
   },
-  reviewInfo: {
+  platformStatusInfoWrap: {
     display: "flex",
-    justifyContent: "space-between",
-    "&>div": {
-      display: "flex",
-      justifyContent: "space-between",
-      alignItems: "center",
-      marginLeft: "25px"
-    }
+  },
+  platformStatusInfo: {
+    display: "flex",
+    alignItems: "center",
+    marginLeft: "25px"
   },
   svgRoot: {
     fill: "#8b0000",
     marginRight: "10px"
   },
+  
   "@media(max-width: 768px)": {
     slider: {
-      minHeight: "350px"
+      height: "240px",
+      "& .carousel-root .carousel .control-dots": {
+        top: "45px",
+      },
     },
     sliderItem: {
-      minHeight: "350px"
+      maxHeight: "240px"
     },
-    sliderButtonGroup: {
+    title: {
+      fontSize: ".7em",
+    },
+    playNow: {
       top: "40px",
-      left: "40px"
-    },
-    watchNow: {
-      top: "150px",
-      left: 0,
       width: "200px"
     },
-    movieLogo: {
+    gameLogo: {
       width: "200px",
       height: "75px"
     },
-    releaseDate: {
-        display: "inline-block",
-        marginTop: "5px"
+    sliderBar: {
+      fontSize: ".6em",
     },
-    reviewInfo: {
-      "&>div": {
-        marginLeft: "10px"
-      }
+    releaseDate: {
+      display: "inline-block",
+      marginTop: "5px"
+    },
+    platformStatusInfo: {
+      lineHeight: "1",
+      marginLeft: "10px"
     },
     svgRoot: {
       width: "0.75em",
       height: "0.75em",
-      marginRight: "2px"
+      marginRight: "5px"
     }
   },
+
+  "@media(max-width: 426px)": {
+    slider: {
+      height: "170px",
+      marginBottom: "45px",
+      "& .carousel-root .carousel .control-dots": {
+        top: "0",
+        marginTop: "10px",
+      },
+    },
+    sliderItem: {
+      maxHeight: "170px"
+    },
+    playNow: {
+      top: "unset",
+      bottom: "10px",
+      left: "24px",
+      width: "118px",
+      marginTop: "5px",
+      marginBottom: "5px",
+    },
+    gameLogo: {
+      display: "none",
+    },
+    sliderBar: {
+      bottom: "-45px",
+      background: "#000000"
+    },
+    sliderBarContent: {
+      flexDirection: "column",
+      justifyContent: "space-evenly",
+    },
+    platformStatusInfo: {
+      marginLeft: 0,
+      marginRight: "10px",
+    },
+    svgRoot: {
+      width: "0.65em",
+      height: "0.65em",
+    }
+  }
 });

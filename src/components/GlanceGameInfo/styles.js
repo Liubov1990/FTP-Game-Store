@@ -1,77 +1,79 @@
 export const styles = () => ({
-    shortGameInfo: {
-      display: "flex",
-      justifyContent: "space-between",
-      color: "#ffffff",
-      background: "linear-gradient(45deg, #000000, #800000)",
-      padding: "40px 24px"
+  glanceInfoWrap: {
+    display: "flex",
+    justifyContent: "space-between",
+    color: "#ffffff",
+    background: "linear-gradient(45deg, #000000, #800000)",
+    padding: "40px 24px"
+  },
+  screenshots: {
+    minWidth: "60%",
+    marginRight: "3%",
+  },
+  glance: {
+    minWidth: "37%",
+    background: "rgba(0.5, 0.5, 0.5, .4)",
+    boxSizing: "border-box",
+    "&>a:hover": {
+      textDecoration: "none"
+    }
+  },
+  glanceInfo: {
+    padding: "20px 15px",
+    textAlign: "left",
+    "&>div": {
+      lineHeight: 1.2,
+      marginBottom: "5px"
     },
-    videoWrapper: {
-      minWidth: "60%",
-      height: "auto",
-      marginRight: "3%",
-      boxSizing: "border-box",
-      "&>video": {
-        minWidth: "100%"
-      },
-      "&>p": {
-        marginTop: "15px"
-      }
+    "& h4": {
+      marginRight: "5px"
     },
-    image: {
-      width: "100%",
-      height: "auto"
+  },
+  info: {
+    fontFamily: "Prompt",
+    fontSize: "0.75em"
+  },
+  shortDescription: {
+    textAlign: "left",
+  },
+  linkDecoration: {
+    "&:hover": {
+      textDecoration: "none"
+    }
+  },
+  buttonRoot: {
+    width: "180px",
+    height: "38px",
+    fontFamily: "'Iceland', cursive",
+    color: "#ffffff",
+    backgroundColor: "#8b0000",
+    boxShadow: "none",
+    marginTop: "15px",
+    "&:hover": {
+      color: "#8b0000",
+      textDecoration: "none"
+    }
+  },
+  
+  "@media (max-width: 768px)": {
+    glanceInfoWrap: {
+      flexDirection: "column"
+    },
+    screenshots: {
+      minWidth: "100%",
+      marginRight: 0
     },
     glance: {
-      minWidth: "37%",
-      background: "rgba(0.5, 0.5, 0.5, .4)",
-      boxSizing: "border-box",
-      "&>a:hover": {
-        textDecoration: "none"
-      }
+      minWidth: "100%"
     },
     glanceInfo: {
-      padding: "20px 15px",
-      textAlign: "left",
       "&>div": {
-        lineHeight: 1.5,
+        lineHeight: 1,
         marginBottom: "5px"
-      }
-    },
-    shortDescription: {
-      textAlign: "justify"
-    },
-    linkDecoration: {
-      "&:hover": {
-        textDecoration: "none"
-      }
-    },
-    buttonRoot: {
-      width: "180px",
-      height: "38px",
-      fontFamily: "'Gothic A1', sans-serif",
-      fontSize: "14px",
-      fontWeight: 400,
-      color: "#ffffff",
-      backgroundColor: "#8b0000",
-      boxShadow: "none",
-      "&:hover": {
-        color: "#8b0000",
-        textDecoration: "none"
-      }
-    },
-    "@media (max-width: 768px)": {
-      shortGameInfo: {
-        flexDirection: "column"
       },
-      videoWrapper: {
-        minWidth: "100%",
-        marginBottom: "20px",
-        marginRight: 0
-      },
-      glance: {
-        minWidth: "100%"
-      },
-    }
-  });
-  
+    },
+    info: {
+      fontSize: "0.6em"
+    },
+  }
+});

@@ -7,6 +7,8 @@ export const SET_IMAGES = "SET_IMAGES";
 export const SET_RANDOM_IMAGES = "SET_RANDOM_IMAGES";
 export const SET_PAGE = "SET_PAGE";
 export const SET_TOTAL_PAGES = "SET_TOTAL_PAGES";
+export const SET_SLIDE_DATA_LOADING = "SET_SLIDE_DATA_LOADING";
+export const SET_SLIDE_DATA_FAILURE = "SET_SLIDE_DATA_FAILURE";
 
 export const getGamesListAsync = () => {
   return async (dispatch, getState) => {
@@ -48,7 +50,6 @@ export const getSpecificImageAsync = data => {
         }
       } catch (error) {
         // dispatch(setError(error));
-        // console.error(error);
       }
     };
 
@@ -84,5 +85,17 @@ export const setTotalPages = totalPagesData => {
   return {
     type: "SET_TOTAL_PAGES",
     payload: totalPagesData
+  };
+};
+
+export const setSlideDataLoading = () => {
+  return {
+    type: "SET_SLIDE_DATA_LOADING"
+  };
+};
+
+export const setSlideDataFailure = () => {
+  return {
+    type: "SET_SLIDE_DATA_FAILURE"
   };
 };

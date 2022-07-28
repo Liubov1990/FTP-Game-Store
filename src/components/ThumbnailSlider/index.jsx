@@ -1,13 +1,9 @@
 import React, { useEffect } from "react";
-import { useParams } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 // material-ui
 import { makeStyles } from "@material-ui/core/styles";
-import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
-import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
-
-import { getSpecificDataAsync } from "../../redux/actions/gamePageActions";
-
+ // requires a loader
+import { Carousel } from "react-responsive-carousel";
 // styles
 import { styles } from "./styles";
 
@@ -17,67 +13,48 @@ function ThumbnailSlider() {
   const classes = useStyles();
 
   const { gameDetails } = useSelector(state => state.gamePageReducer);
-  const screenshotsArr = gameDetails?.screenshots;
-  const firstSliderImage = gameDetails?.screenshots?.length ? gameDetails?.screenshots[0]?.image : null;
+  const [screenshots, setScreenshots] = React.useState([]);
   const [sliderImage, setSliderImage] = React.useState(null);
 
   useEffect(() => {
-    if (gameDetails?.screenshots?.length) {
-      setSliderImage(gameDetails?.screenshots[0].image);
+    if (Object.keys(gameDetails).length) {
+      const defaultImage = {
+        id: "defaultImageId",
+        image: gameDetails?.thumbnail
+      };
+      setSliderImage(defaultImage.image);
+      if (gameDetails?.screenshots?.length) {
+        setScreenshots([defaultImage, ...gameDetails?.screenshots]);
+      }
     }
-  }, [firstSliderImage]);
-
-  const handleThumbnail = arrow => {
-    const currImgIndex = screenshotsArr.findIndex((item, index, screenshotsArr) => {
-      return item.image === sliderImage;
-    });
-    if (arrow === "next") {
-      return currImgIndex === screenshotsArr.length - 1
-        ? setSliderImage(gameDetails?.screenshots[0].image)
-        : setSliderImage(gameDetails?.screenshots[currImgIndex + 1].image);
-    }
-
-    return currImgIndex === 0 ? setSliderImage(gameDetails?.screenshots[screenshotsArr.length - 1].image) : setSliderImage(gameDetails?.screenshots[currImgIndex - 1].image);
-  };
+  }, [gameDetails]);
 
   return (
-    <>
-      {gameDetails?.screenshots?.length !== 0 ? (
-        <>
-          <div
-            className={classes.frontImage}
-            style={{
-              backgroundImage: `url(${sliderImage})`,
-            }}
-          />
-          <div className={classes.thumbnailImages}>
-            {gameDetails?.screenshots?.map(({ id, image }) => (
-              <div
-                key={id}
-                style={{
-                  backgroundImage: `url(${image})`,
-                  // width: "160px"
-                  // height: "auto"
-                }}
-                className={`${classes.thumbnailImage} ${sliderImage === image && classes.activeThumbnailImage}`}
-                onClick={() => setSliderImage(image)}
-                data-position={gameDetails?.screenshots}
-              />
+    <div
+    className={classes.thumbnailSlider}
+    >
+      {screenshots?.length !== 0 ? (
+          <Carousel
+            autoPlay
+            infiniteLoop={true}
+            interval="10000"
+            showStatus={false}
+            showArrows={false}
+            showIndicators={false}
+          >
+            {screenshots.map(({ id, image }) => (
+              <img key={id} src={image} alt="" />
             ))}
-          </div>
-          <div className={classes.controls}>
-            <div className={classes.prevBtn} onClick={() => handleThumbnail("prev")}>
-              <ArrowBackIosIcon />
-            </div>
-            <div className={classes.nextBtn} onClick={() => handleThumbnail("next")}>
-              <ArrowForwardIosIcon />
-            </div>
-          </div>
-        </>
+          </Carousel>
       ) : (
-        "<div></div>"
+        <div
+          className={classes.resizedImage}
+          style={{
+            backgroundImage: `url(${gameDetails?.thumbnail})`
+          }}
+        ></div>
       )}
-    </>
+    </div>
   );
 }
 export default ThumbnailSlider;

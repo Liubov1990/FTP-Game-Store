@@ -39,5 +39,4 @@ function Games() {
     </Layout>
   );
 }
-
 export default Games;

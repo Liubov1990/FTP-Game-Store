@@ -6,11 +6,10 @@ export const styles = () => ({
     margin: "0 auto"
   },
   chipRoot: {
-    fontFamily: '"Gothic A1", sans-serif',
-    fontSize: "16px",
+    fontFamily: "Prompt",
     lineHeight: "24px",
     color: " #3f444e",
-    marginRight: "15px",
-    marginBottom: "15px"
+    marginRight: "10px",
+    marginBottom: "10px"
   }
 });

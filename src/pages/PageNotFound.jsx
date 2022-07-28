@@ -10,5 +10,4 @@ function NoPage() {
     </Layout>
   );
 }
-
 export default NoPage;

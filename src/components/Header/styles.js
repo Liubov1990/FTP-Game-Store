@@ -18,7 +18,6 @@ export const styles = () => ({
     },
   },
   logo: {
-    fontSize: "18px",
     textTransform: "uppercase",
     fontWeight: 800,
     cursor: "pointer",
@@ -29,9 +28,7 @@ export const styles = () => ({
   buttonRoot: {
     width: "130px",
     height: "38px",
-    fontFamily: "'Gothic A1', sans-serif",
-    fontSize: "14px",
-    fontWeight: 400,
+    fontFamily: "'Iceland', cursive",
     color: "#ffffff",
     backgroundColor: "#8b0000",
     textDecoration: "none",
@@ -98,7 +95,4 @@ export const styles = () => ({
       backgroundColor: "#8b0000"
     }
   },
-  "@media(max-width: 425px)": {
-
-  }
 });

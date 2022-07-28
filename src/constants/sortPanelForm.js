@@ -4,20 +4,23 @@ export const formInputs = [
     formLabel: "Platform",
     options: [
       {
+        value: "all"
+      },
+      {
         value: "pc"
       },
       {
         value: "browser"
       },
-      {
-        value: "all"
-      }
     ]
   },
   {
     id: "categoryField",
     formLabel: "Category",
     options: [
+      {
+        value: "all"
+      },
       {
         value: "mmo"
       },
@@ -45,6 +48,9 @@ export const formInputs = [
     id: "orderField",
     formLabel: "Order",
     options: [
+      {
+        value: "all"
+      },
       {
         value: "release-date"
       },

@@ -12,9 +12,9 @@ function GameDescription() {
   const { gameDetails } = useSelector(state => state.gamePageReducer);
 
   return (
-    <div className={classes.description}>
+    <div className={`${classes.description} ${classes.parallax}`}>
       <h2>{gameDetails?.title}</h2>
-      <p>{gameDetails?.description}</p>
+      <p className={classes.descriptionText}>{gameDetails?.description}</p>
     </div>
   );
 }

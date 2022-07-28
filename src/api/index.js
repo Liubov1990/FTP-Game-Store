@@ -8,14 +8,14 @@ export function getGamesListRequest({ platformField, categoryField, orderField }
       "x-rapidapi-key": API_KEY
     },
     params: {
-      ...(platformField && { platform: platformField }),
-      ...(categoryField && { category: categoryField }),
-      ...(orderField && { "sort-by": orderField })
+      platform: platformField,
+      ...(categoryField !== "all" && { category: categoryField }),
+      ...(orderField !== "all" && { "sort-by": orderField })
     }
   });
 }
 
-export function getSpecificDataRequest(id) {  
+export function getSpecificDataRequest(id) {
   return axios.get(`${API_LINK}/game`, {
     headers: {
       "x-rapidapi-host": "free-to-play-games-database.p.rapidapi.com",
@@ -27,13 +27,6 @@ export function getSpecificDataRequest(id) {
   });
 }
 
-export function getVideoSearchRequest(queryTitle) {
-  return axios.get(
-    `${API_LINK_BIG}/search/?api_key=${API_KEY_BIG}&format=json&query=${queryTitle}&resources=video,videos&field_list=id,name,hd_url,high_url,low_url`,
-    {}
-  );
-}
-
 export function getGuidRequest(queryTitle) {
   return axios.get(`${API_LINK_BIG}/search/?api_key=${API_KEY_BIG}&format=json&query=${queryTitle}&resources=game`, {});
 }
@@ -41,3 +34,4 @@ export function getGuidRequest(queryTitle) {
 export function getGameDataRequest(guid) {
   return axios.get(`${API_LINK_BIG}/game/${guid}/?api_key=${API_KEY_BIG}&format=json`, {});
 }
+

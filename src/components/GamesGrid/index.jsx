@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 // material-ui
@@ -55,5 +55,4 @@ function GamesGrid() {
     </>
   );
 }
-
 export default GamesGrid;

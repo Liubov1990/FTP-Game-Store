@@ -8,8 +8,6 @@ const useStyles = makeStyles(errorStyles);
 function Error() {
   const classes = useStyles();
 
-  return (
-      <div className={classes.error}></div>
-  );
+  return <div className={classes.error}></div>;
 }
 export default Error;

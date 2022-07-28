@@ -27,7 +27,7 @@ function SortPanelDropdown({ id, formLabel, options }) {
       <InputLabel id={id}>{formLabel}</InputLabel>
       <Select labelId={formLabel} id={formLabel} value={value} onChange={handleChange}>
         {options.map(({ value }) => (
-          <MenuItem key={value} value={value}>
+          <MenuItem key={value} value={value} classes={{root: classes.rootMenuItem}}>
             {value.toUpperCase()}
           </MenuItem>
         ))}
@@ -35,5 +35,4 @@ function SortPanelDropdown({ id, formLabel, options }) {
     </FormControl>
   );
 }
-
 export default SortPanelDropdown;
