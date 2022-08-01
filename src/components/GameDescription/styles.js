@@ -1,6 +1,6 @@
 export const styles = () => ({
   parallax: {
-    backgroundImage: "url(/images/parallax_bg.jpg)",
+    backgroundImage: `url(${'/images/parallax_bg.jpg'})`,
     backgroundAttachment: "fixed",
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",

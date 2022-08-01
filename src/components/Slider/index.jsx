@@ -85,7 +85,7 @@ function Slider() {
 
           <div className={classes.contentWrapper}>
             <div className={classes.playNow}>
-              <img src="/images/be_a_hero.png" alt="" className={classes.gameLogo} />
+              <img src={`${'/images/be_a_hero.png'}`} alt="" className={classes.gameLogo} />
               <Link href={activeSlideData?.game_url} target="_blank">
                 <Button variant="contained" classes={{ root: classes.buttonRoot }}>
                   Play now

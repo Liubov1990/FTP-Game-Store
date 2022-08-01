@@ -1,7 +1,6 @@
 {
   "name": "gam-games",
   "version": "0.1.0",
-  "homepage": "https://liubov1990.github.io/FTP-Game-Store",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.12.3",

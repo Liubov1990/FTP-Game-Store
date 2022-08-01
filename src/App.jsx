@@ -2,7 +2,7 @@ import React from "react";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import { store, persistor } from "./redux/store";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { HashRouter, Switch, Route } from "react-router-dom";
 // constants
 import { routing } from "./constants";
 // components
@@ -16,7 +16,7 @@ function App() {
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <FailureSnackbar />
-        <Router>
+        <HashRouter>
           <Switch>
             {routing.map(path => {
               const { default: Page } = require(`./pages/${path.page}`);
@@ -26,9 +26,9 @@ function App() {
                 </Route>
               );
             })}
-            <Route component={NoPage}/>
+            <Route component={NoPage} />
           </Switch>
-        </Router>
+        </HashRouter>
       </PersistGate>
     </Provider>
   );
