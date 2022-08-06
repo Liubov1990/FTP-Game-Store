@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 // material-ui
 import { makeStyles } from "@material-ui/core/styles";
- // requires a loader
+// react-responsive-carousel
 import { Carousel } from "react-responsive-carousel";
 // styles
 import { styles } from "./styles";

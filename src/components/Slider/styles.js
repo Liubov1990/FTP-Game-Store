@@ -12,7 +12,20 @@ export const styles = () => ({
     },
     // end reactCarouselOverride
   },
-  sliderItem: {
+  indicatorStyles: {
+    background: "#fff",
+    width: "10px",
+    height: "10px",
+    borderRadius: "50%",
+    outline: "2px solid #8b0000",
+    padding: "5px",
+    margin: "7px 7px 7px 24px",
+    cursor: "pointer",
+    "&.active": {
+      background: "#000"
+    },
+  },
+    sliderItem: {
     maxHeight: "425px",
   },
   contentWrapper: {

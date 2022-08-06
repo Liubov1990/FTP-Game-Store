@@ -26,10 +26,9 @@ function GamePage() {
   const dispatch = useDispatch();
   const { id } = useParams();
 
-  const { status, gameDetails } = useSelector(state => state.gamePageReducer);
+  const { status } = useSelector(state => state.gamePageReducer);
   
   useEffect(() => {
-    
     dispatch(getSpecificDataAsync(id));
 
     return function cleanUp() {

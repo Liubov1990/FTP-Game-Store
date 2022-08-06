@@ -9,6 +9,7 @@ export const SET_PAGE = "SET_PAGE";
 export const SET_TOTAL_PAGES = "SET_TOTAL_PAGES";
 export const SET_SLIDE_DATA_LOADING = "SET_SLIDE_DATA_LOADING";
 export const SET_SLIDE_DATA_FAILURE = "SET_SLIDE_DATA_FAILURE";
+export const CLEAR_RANDOM_IMAGES_STATE = "CLEAR_RANDOM_IMAGES_STATE";
 
 export const getGamesListAsync = () => {
   return async (dispatch, getState) => {
@@ -24,7 +25,6 @@ export const getGamesListAsync = () => {
       dispatch(getSpecificImageAsync(data));
       dispatch(setImages(data));
       dispatch(setTotalPages(pagesCount));
-      dispatch(setPage(1));
     } catch (error) {
       dispatch(showFailureSnackbar("Failure!"));
       // dispatch(setError(error));
@@ -34,8 +34,6 @@ export const getGamesListAsync = () => {
 
 export const getSpecificImageAsync = data => {
   return async dispatch => {
-    let randomImagesList = {};
-
     const getRandomImage = async () => {
       const randomImage = Math.floor(Math.random() * data.length - 1);
       const randomImageId = data[randomImage]?.id;
@@ -43,20 +41,15 @@ export const getSpecificImageAsync = data => {
         const { data: imageData } = await getSpecificDataRequest(randomImageId);
 
         if (imageData?.screenshots?.length) {
-          return (randomImagesList = {
-            ...randomImagesList,
-            [imageData?.id]: imageData
-          });
+          return imageData
         }
       } catch (error) {
         // dispatch(setError(error));
       }
     };
 
-    const promises = [...Array(4).keys()].map(async () => getRandomImage());
-    for await (const res of promises) {
-    }
-    dispatch(setRandomImages(randomImagesList));
+    const randomList = await (await Promise.all([...Array(4).keys()].map(async () => getRandomImage()))).filter(Boolean);
+    dispatch(setRandomImages(randomList));
   };
 };
 
@@ -97,5 +90,11 @@ export const setSlideDataLoading = () => {
 export const setSlideDataFailure = () => {
   return {
     type: "SET_SLIDE_DATA_FAILURE"
+  };
+};
+
+export const clearRandomImagesState = () => {
+  return { 
+    type: "CLEAR_RANDOM_IMAGES_STATE",
   };
 };

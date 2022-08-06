@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 // material-ui
 import { Paper, Button } from "@material-ui/core";
 // actions
-import { getGamesListAsync } from "../../redux/actions/imagesSearchActions";
+import { getGamesListAsync, setPage } from "../../redux/actions/imagesSearchActions";
 // constants
 import { formInputs } from "../../constants/sortPanelForm";
 // components
@@ -24,10 +24,15 @@ function SortPanel() {
   const { platformField, categoryField, orderField } = useSelector(state => state.sortPanelReducer);
   const isResetDisabled = platformField === "all" && categoryField === "all" && orderField === "all";
 
-  const peventedMultiRequest = debounce(() => dispatch(getGamesListAsync()));
+  const peventedMultiRequest = debounce(() => {
+    dispatch(getGamesListAsync());
+    dispatch(setPage(1));
+  });
+
   const resetAllFields = () => {
     dispatch(resetFields());
     dispatch(getGamesListAsync());
+    dispatch(setPage(1));
   } 
 
   return (

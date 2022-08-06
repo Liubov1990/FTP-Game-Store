@@ -1,36 +1,33 @@
 import React, { useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 // material-ui
 import { Button, Link } from "@material-ui/core";
 import ImportantDevicesIcon from "@material-ui/icons/ImportantDevices";
 import FindReplaceIcon from "@material-ui/icons/FindReplace";
 import { makeStyles } from "@material-ui/core/styles";
+// react-responsive-carousel
+import { Carousel } from "react-responsive-carousel";
 // components
 import Pending from "../../components/Pending";
+// actions
+import { clearRandomImagesState } from "../../redux/actions/imagesSearchActions";
 // styles
 import { styles } from "./styles";
-import { Carousel } from "react-responsive-carousel";
 
 const useStyles = makeStyles(styles);
 
 function Slider() {
   const classes = useStyles();
+  const dispatch = useDispatch();
 
   const { randomImagesList, status } = useSelector(state => state.imagesSearchReducer);
-  const imagesList = Object.values(randomImagesList);
-
   const [activeSlideData, setActiveSlideData] = React.useState(null);
 
-  const indicatorStyles = {
-    background: "rgba(0,0,0,.5)",
-    width: "10px",
-    height: "10px",
-    borderRadius: "50%",
-    outline: "2px solid #8b0000",
-    padding: "5px",
-    margin: "7px 7px 7px 24px",
-    cursor: "pointer"
-  };
+  useEffect(() => {
+    return function cleanUp() {
+      dispatch(clearRandomImagesState());
+    };
+  }, []);
 
   return (
     <div className={classes.slider}>
@@ -40,20 +37,20 @@ function Slider() {
           <Carousel
             autoPlay
             infiniteLoop
-            interval={5000}
+            interval="5000"
             showStatus={false}
             showArrows={false}
             showThumbs={false}
             animationHandler="fade"
             swipeable={false}
             renderIndicator={(onClickHandler, isSelected, index, label) => {
-              const currentSlide = imagesList[index];
+              const currentSlide = randomImagesList[index];
               if (isSelected) {
                 queueMicrotask(() => setActiveSlideData(currentSlide));
                 return (
                   <div className={classes.indicatorWrap}>
                     <li
-                      style={{ ...indicatorStyles, background: "#fff" }}
+                      className={`${classes.indicatorStyles} active`}
                       aria-label={`Selected: ${label} ${index + 1}`}
                     />
                     <span className={classes.title}>{currentSlide.title}</span>
@@ -62,7 +59,7 @@ function Slider() {
               }
               return (
                 <li
-                  style={indicatorStyles}
+                  className={classes.indicatorStyles}
                   onClick={onClickHandler}
                   onKeyDown={onClickHandler}
                   value={index}
@@ -74,7 +71,7 @@ function Slider() {
               );
             }}
           >
-            {imagesList.map(value => {
+            {randomImagesList.map(value => {
               return (
                 <div key={value.id} className={classes.sliderItem}>
                   <img src={value.screenshots[0]?.image} alt="" height="100%" width="100%" />
@@ -85,7 +82,7 @@ function Slider() {
 
           <div className={classes.contentWrapper}>
             <div className={classes.playNow}>
-              <img src={`${'/images/be_a_hero.png'}`} alt="" className={classes.gameLogo} />
+              <img src={`${process.env.PUBLIC_URL}/images/be_a_hero.png`} alt="" className={classes.gameLogo} />
               <Link href={activeSlideData?.game_url} target="_blank">
                 <Button variant="contained" classes={{ root: classes.buttonRoot }}>
                   Play now
@@ -103,13 +100,13 @@ function Slider() {
               </div>
               <div className={classes.platformStatusInfoWrap}>
                 {activeSlideData?.platform && (
-                  <div title="Platform" className={classes. platformStatusInfo}>
+                  <div title="Platform" className={classes.platformStatusInfo}>
                     <ImportantDevicesIcon classes={{ root: classes.svgRoot }} />
                     <p>{activeSlideData?.platform}</p>
                   </div>
                 )}
                 {activeSlideData?.status && (
-                  <div title="Status" className={classes. platformStatusInfo}>
+                  <div title="Status" className={classes.platformStatusInfo}>
                     <FindReplaceIcon classes={{ root: classes.svgRoot }} />
                     <p>{activeSlideData?.status}</p>
                   </div>

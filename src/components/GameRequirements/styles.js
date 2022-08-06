@@ -39,7 +39,7 @@ export const styles = () => ({
   systemRequirementsImage: {
     width: "37%",
     height: "230px",
-    background: `url(${'/images/system_requirements.png'})`,
+    background: `url(${process.env.PUBLIC_URL}/images/system_requirements.png)`,
     backgroundSize: "contain",
     backgroundRepeat: "no-repeat",
     backgroundPosition: "center",
