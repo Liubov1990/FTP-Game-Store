@@ -1,23 +1,23 @@
 {
   "files": {
     "main.css": "/FTP-Game-Store/static/css/main.0884e576.chunk.css",
-    "main.js": "/FTP-Game-Store/static/js/main.46eab730.chunk.js",
-    "main.js.map": "/FTP-Game-Store/static/js/main.46eab730.chunk.js.map",
+    "main.js": "/FTP-Game-Store/static/js/main.6b612f6f.chunk.js",
+    "main.js.map": "/FTP-Game-Store/static/js/main.6b612f6f.chunk.js.map",
     "runtime-main.js": "/FTP-Game-Store/static/js/runtime-main.02f01997.js",
     "runtime-main.js.map": "/FTP-Game-Store/static/js/runtime-main.02f01997.js.map",
     "static/css/2.ed1298f3.chunk.css": "/FTP-Game-Store/static/css/2.ed1298f3.chunk.css",
-    "static/js/2.0aa3892a.chunk.js": "/FTP-Game-Store/static/js/2.0aa3892a.chunk.js",
-    "static/js/2.0aa3892a.chunk.js.map": "/FTP-Game-Store/static/js/2.0aa3892a.chunk.js.map",
+    "static/js/2.449fb71d.chunk.js": "/FTP-Game-Store/static/js/2.449fb71d.chunk.js",
+    "static/js/2.449fb71d.chunk.js.map": "/FTP-Game-Store/static/js/2.449fb71d.chunk.js.map",
     "index.html": "/FTP-Game-Store/index.html",
     "static/css/2.ed1298f3.chunk.css.map": "/FTP-Game-Store/static/css/2.ed1298f3.chunk.css.map",
     "static/css/main.0884e576.chunk.css.map": "/FTP-Game-Store/static/css/main.0884e576.chunk.css.map",
-    "static/js/2.0aa3892a.chunk.js.LICENSE.txt": "/FTP-Game-Store/static/js/2.0aa3892a.chunk.js.LICENSE.txt"
+    "static/js/2.449fb71d.chunk.js.LICENSE.txt": "/FTP-Game-Store/static/js/2.449fb71d.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.02f01997.js",
     "static/css/2.ed1298f3.chunk.css",
-    "static/js/2.0aa3892a.chunk.js",
+    "static/js/2.449fb71d.chunk.js",
     "static/css/main.0884e576.chunk.css",
-    "static/js/main.46eab730.chunk.js"
+    "static/js/main.6b612f6f.chunk.js"
   ]
 }
