@@ -1,6 +1,6 @@
 export const errorStyles = () => ({
   error: {
-    backgroundImage: `url(${process.env.PUBLIC_URL}/images/page_not_found.png'})`,
+    backgroundImage: `url(${process.env.PUBLIC_URL}/images/page_not_found.png)`,
     backgroundSize: "cover",
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
