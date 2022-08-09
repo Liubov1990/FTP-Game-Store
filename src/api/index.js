@@ -1,9 +1,9 @@
 import axios from "axios";
-import { API_LINK, API_LINK_FREETOGAME } from "../constants";
-import { API_KEY } from "../constants/apiKey";
+import { API_LINK_GIANT_BOMB, API_LINK_RAPID } from "../constants/apiLinks";
+import { API_KEY_GIANT_BOMB } from "../constants/apiKey";
 
 export function getGamesListRequest({ platformField, categoryField, orderField }) {
-  return axios.get(`${API_LINK_FREETOGAME}/games`, {
+  return axios.get(`${API_LINK_RAPID}/games`, {
     params: {
       platform: platformField,
       ...(categoryField !== "all" && { category: categoryField }),
@@ -13,7 +13,7 @@ export function getGamesListRequest({ platformField, categoryField, orderField }
 }
 
 export function getSpecificDataRequest(id) {
-  return axios.get(`${API_LINK_FREETOGAME}/game`, {
+  return axios.get(`${API_LINK_RAPID}/game`, {
     params: {
       id: Number(id)
     }
@@ -21,10 +21,9 @@ export function getSpecificDataRequest(id) {
 }
 
 export function getGuidRequest(queryTitle) {
-  return axios.get(`${API_LINK}/search/?api_key=${API_KEY}&format=json&query=${queryTitle}&resources=game`, {});
+  return axios.get(`${API_LINK_GIANT_BOMB}/search/?api_key=${API_KEY_GIANT_BOMB}&format=json&query=${queryTitle}&resources=game`, {});
 }
 
 export function getGameDataRequest(guid) {
-  return axios.get(`${API_LINK}/game/${guid}/?api_key=${API_KEY}&format=json`, {});
+  return axios.get(`${API_LINK_GIANT_BOMB}/game/${guid}/?api_key=${API_KEY_GIANT_BOMB}&format=json`, {});
 }
-
