@@ -20,13 +20,14 @@ function GamesGrid() {
   const history = useHistory();
   const dispatch = useDispatch();
 
-  const { gamesList, page } = useSelector(state => state.imagesSearchReducer);
+  const { gamesList, page, status } = useSelector(state => state.imagesSearchReducer);
+
   const firstIndex = page === 1 ? 0 : (page - 1) * pageElementsAmount;
   const elementsPerPage = gamesList.slice(firstIndex, firstIndex + pageElementsAmount);
 
   useEffect(() => {
     dispatch(getGamesListAsync());
-  }, []);
+  }, [dispatch]);
 
   const makeRedirect = id => {
     history.push(`/games/${id}`);
@@ -34,24 +35,29 @@ function GamesGrid() {
 
   return (
     <>
-      <div className={classes.gridContainer}>
-        {elementsPerPage.map(({ id, thumbnail, title }) => (
-          <Paper
-            key={id}
-            onClick={() => makeRedirect(id)}
-            style={{
-              backgroundImage: `url(${thumbnail})`,
-              backgroundSize: "101%",
-              backgroundRepeat: "no-repeat",
-              backgroundPosition: "center"
-            }}
-            className={classes.gridItem}
-          >
-            <div className={classes.gameName}>{title}</div>
-          </Paper>
-        ))}
-      </div>
-      <Pagination />
+      {status === "FAILURE" && <div className={`${classes.gridContainer} error`}>Something went wrong. Please, try again or wisit our site later.</div>}
+      {status === "SUCCESS" && (
+        <>
+          <div className={classes.gridContainer}>
+            {elementsPerPage.map(({ id, thumbnail, title }) => (
+              <Paper
+                key={id}
+                onClick={() => makeRedirect(id)}
+                style={{
+                  backgroundImage: `url(${thumbnail})`,
+                  backgroundSize: "101%",
+                  backgroundRepeat: "no-repeat",
+                  backgroundPosition: "center"
+                }}
+                className={classes.gridItem}
+              >
+                <div className={classes.gameName}>{title}</div>
+              </Paper>
+            ))}
+          </div>
+          <Pagination />
+        </>
+      )}
     </>
   );
 }

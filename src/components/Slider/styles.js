@@ -11,6 +11,15 @@ export const styles = () => ({
       flexDirection: "column",
     },
     // end reactCarouselOverride
+
+    "&.noData": {
+      backgroundImage: `url(${process.env.PUBLIC_URL}/images/no_data.jpg)`,
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      backgroundRepeat: "no-repeat",
+      width: "100%",
+      height: "425px",
+    }
   },
   indicatorStyles: {
     background: "#fff",
@@ -133,6 +142,9 @@ export const styles = () => ({
       "& .carousel-root .carousel .control-dots": {
         top: "45px",
       },
+      "&.noData": {
+        height: "240px",
+      }
     },
     sliderItem: {
       maxHeight: "240px"
@@ -174,6 +186,9 @@ export const styles = () => ({
         top: "0",
         marginTop: "10px",
       },
+      "&.noData": {
+        height: "170px",
+      }
     },
     sliderItem: {
       maxHeight: "170px"

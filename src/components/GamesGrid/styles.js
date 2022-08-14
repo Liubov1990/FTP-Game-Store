@@ -7,8 +7,14 @@ export const styles = () => ({
     gridTemplateColumns: sixCols,
     gridAutoRows: "120px",
     gridAutoFlow: "dense",
+    color: "#ffffff",
     background: "linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(139, 0, 0, 1) 50%, rgba(0, 0, 0, 1) 100%)",
     padding: "10px 24px",
+    "&.error": {
+      gridTemplateColumns: "none",
+      alignItems: "center",
+      justifyContent: "center",
+    },
     "&>div:nth-of-type(1)": {
       gridColumn: "startline / 3"
     },

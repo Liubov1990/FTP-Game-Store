@@ -14,7 +14,6 @@ function ThumbnailSlider() {
 
   const { gameDetails } = useSelector(state => state.gamePageReducer);
   const [screenshots, setScreenshots] = React.useState([]);
-  const [sliderImage, setSliderImage] = React.useState(null);
 
   useEffect(() => {
     if (Object.keys(gameDetails).length) {
@@ -22,7 +21,6 @@ function ThumbnailSlider() {
         id: "defaultImageId",
         image: gameDetails?.thumbnail
       };
-      setSliderImage(defaultImage.image);
       if (gameDetails?.screenshots?.length) {
         setScreenshots([defaultImage, ...gameDetails?.screenshots]);
       }

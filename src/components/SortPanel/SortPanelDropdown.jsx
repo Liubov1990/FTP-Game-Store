@@ -14,6 +14,8 @@ function SortPanelDropdown({ id, formLabel, options }) {
   const classes = useStyles();
   const dispatch = useDispatch();
 
+  const { status } = useSelector(state => state.imagesSearchReducer);
+
   const value = useSelector(state => state.sortPanelReducer[id]);
 
   const handleChange = event => {
@@ -23,11 +25,11 @@ function SortPanelDropdown({ id, formLabel, options }) {
   };
 
   return (
-    <FormControl className={classes.formControl}>
+    <FormControl className={classes.formControl} disabled={status === "FAILURE"}>
       <InputLabel id={id}>{formLabel}</InputLabel>
       <Select labelId={formLabel} id={formLabel} value={value} onChange={handleChange}>
         {options.map(({ value }) => (
-          <MenuItem key={value} value={value} classes={{root: classes.rootMenuItem}}>
+          <MenuItem key={value} value={value} classes={{ root: classes.rootMenuItem }}>
             {value.toUpperCase()}
           </MenuItem>
         ))}

@@ -15,7 +15,6 @@ export const getSpecificDataAsync = id => {
       dispatch(getGameDataAsync());
     } catch (error) {
       dispatch(setSpecificDataFailure());
-      // dispatch(setError(error));
     }
   };
 };
@@ -31,7 +30,6 @@ export const getGameDataAsync = () => {
       const {
         data: { results }
       } = await getGuidRequest(queryTitle);
-
       const guid = results[0]?.guid;
 
       const gameData = await getGameDataRequest(guid);
@@ -41,7 +39,6 @@ export const getGameDataAsync = () => {
 
       dispatch(setSimilarGames(similarGames));
     } catch (error) {
-      // dispatch(setError());
     }
   };
 };

@@ -21,17 +21,20 @@ function Slider() {
   const dispatch = useDispatch();
 
   const { randomImagesList, status } = useSelector(state => state.imagesSearchReducer);
+
   const [activeSlideData, setActiveSlideData] = React.useState(null);
 
   useEffect(() => {
     return function cleanUp() {
       dispatch(clearRandomImagesState());
     };
-  }, []);
+  }, [dispatch]);
 
   return (
+  <>
     <div className={classes.slider}>
-      {status === "LOADING" && <Pending />}
+      {status === "FAILURE" && <div className={`${classes.slider} noData`}></div>}
+      {status === "PENDING" && <Pending />}
       {status === "SUCCESS" && (
         <>
           <Carousel
@@ -117,6 +120,7 @@ function Slider() {
         </>
       )}
     </div>
+    </>
   );
 }
 export default Slider;

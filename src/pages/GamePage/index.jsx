@@ -34,7 +34,7 @@ function GamePage() {
     return function cleanUp() {
       dispatch(clearGamePageState());
     };
-  }, []);
+  }, [dispatch, id]);
 
   return (
     <Layout>
