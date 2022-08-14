@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/FTP-Game-Store/static/css/main.e718c6e4.css",
-    "main.js": "/FTP-Game-Store/static/js/main.86d2a334.js",
+    "main.js": "/FTP-Game-Store/static/js/main.c5673c19.js",
     "index.html": "/FTP-Game-Store/index.html",
     "main.e718c6e4.css.map": "/FTP-Game-Store/static/css/main.e718c6e4.css.map",
-    "main.86d2a334.js.map": "/FTP-Game-Store/static/js/main.86d2a334.js.map"
+    "main.c5673c19.js.map": "/FTP-Game-Store/static/js/main.c5673c19.js.map"
   },
   "entrypoints": [
     "static/css/main.e718c6e4.css",
-    "static/js/main.86d2a334.js"
+    "static/js/main.c5673c19.js"
   ]
 }
