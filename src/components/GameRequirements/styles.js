@@ -1,12 +1,16 @@
 export const styles = () => ({
-  requirements: {
+  requirementsWrap: {
     display: "flex",
+    justifyContent: "center",
+    width: "100%",
     height: "auto",
     background: "linear-gradient(45deg, #000000, #800000)",
-    padding: "40px 24px"
+    padding: "40px 24px",
+    boxSizing: "border-box",
   },
-  systemRequirementsWrap: {
+  requirements: {
     width: "100%",
+    maxWidth: "1440px",
     color: "#ffffff",
     background: "rgba(0.5, 0.5, 0.5, .4)",
     padding: "20px 15px",

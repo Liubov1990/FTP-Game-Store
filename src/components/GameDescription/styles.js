@@ -5,6 +5,7 @@ export const styles = () => ({
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
+    width: "100%",
   },
   description: {
     maxWidth: "1440px",

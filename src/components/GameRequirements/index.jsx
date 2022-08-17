@@ -12,8 +12,8 @@ function GameRequirements() {
   const details = useSelector(state => state.gamePageReducer.gameDetails?.minimum_system_requirements || {});
 
   return (
-    <div className={classes.requirements}>
-      <div className={classes.systemRequirementsWrap}>
+    <div className={classes.requirementsWrap}>
+      <div className={classes.requirements}>
         <h2>Minimum system requirements</h2>
         <div className={classes.systemRequirements}>
           {Object.keys(details)?.length !== 0 ? (

@@ -5,7 +5,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { makeStyles } from "@material-ui/core/styles";
 // components
 import Layout from "../../components/Layout";
-import Pending from "../../components/Pending";
 import Error from "../../components/Error";
 import GlanceGameInfo from "../../components/GlanceGameInfo";
 import GameDescription from "../../components/GameDescription";
@@ -38,7 +37,6 @@ function GamePage() {
 
   return (
     <Layout>
-      {status === "PENDING" && <Pending />}
       {status === "FAILURE" && <Error />}
       {status === "SUCCESS" && (
         <div className={classes.gameInfo}>

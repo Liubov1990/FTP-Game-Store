@@ -1,10 +1,17 @@
 export const styles = () => ({
   glanceInfoWrap: {
     display: "flex",
-    justifyContent: "space-between",
+    justifyContent: "center",
+    width: "100%",
     color: "#ffffff",
     background: "linear-gradient(45deg, #000000, #800000)",
-    padding: "40px 24px"
+  },
+  glanceInfoContentWrap: {
+    display: "flex",
+    justifyContent: "space-between",
+    padding: "40px 24px",
+    maxWidth: "1440px",
+    width: "100%",
   },
   screenshots: {
     minWidth: "60%",
@@ -54,9 +61,9 @@ export const styles = () => ({
       textDecoration: "none"
     }
   },
-  
+
   "@media (max-width: 768px)": {
-    glanceInfoWrap: {
+    glanceInfoContentWrap: {
       flexDirection: "column"
     },
     screenshots: {

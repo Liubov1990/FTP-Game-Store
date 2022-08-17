@@ -5,6 +5,7 @@
 * [General info](#general-info)
 * [Technologies](#technologies)
 * [Setup](#setup)
+* [See on Git Hub Pages](#see-on-Git-Hub-Pages)
 * [Notes](#notes)
 
 ## General info
@@ -41,9 +42,19 @@ $ npm install
 $ npm start
 
 ```
+## See on Git Hub Pages
+
+Open [https://liubov1990.github.io/FTP-Game-Store/](https://liubov1990.github.io/FTP-Game-Store/) to view it in the browser.
+
+In case you see network error, it means, that you do not have permission to use demo proxy server (in this case follow the link [https://cors-anywhere.herokuapp.com/corsdemo](https://cors-anywhere.herokuapp.com/corsdemo) and press button `Request temporary access to the demo server`) or that limit number of requests on demo proxy server was reached (try again later). 
+
+! Because of restriction of using "thingproxy" on gh-pages, [Rob--W/cors-anywhere](https://github.com/Rob--W/cors-anywhere) is using only for Git Hub Pages.
+
 
 ## Notes
 
-Project powered with [GIANT BOMB API](https://www.giantbomb.com/api/), [Free-To-Play Games Database API](https://www.freetogame.com/api-doc) and [thingproxy](https://github.com/Freeboard/thingproxy). You can use any third proxy or proxy server for correct processing of API calls and avoiding CORS errors.
+At the moment game data API is using with [thingproxy](https://github.com/Freeboard/thingproxy) proxy server. But you can use any third-party proxy or you own proxy server for correct processing of API calls without CORS errors.
 
-Project created for Non-commercial and Demonstration use only!
+Project powered with [GIANT BOMB API](https://www.giantbomb.com/api/), [Free-To-Play Games Database API](https://www.freetogame.com/api-doc).
+
+Created for Non-commercial and Demonstration use only!
