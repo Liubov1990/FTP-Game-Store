@@ -17,7 +17,7 @@ This SPA is a training project of simple FTP game store, created with help of Cr
 Project is created with:
 * React version: 17.0.2.
 * Redux version: 4.1.1.
-* Material ui library version: 4.12.3.
+* Material UI library version: 4.12.3.
 * React Responsive Carousel version: 3.2.23.
 
 ## Setup
@@ -31,7 +31,7 @@ $ cd ../gam-games
 $ npm install
 
 ```
-2. add apy key into the project:
+2. add api key into the project:
 
 - get your API key from [Giant Bomb API](https://www.giantbomb.com/api/);
 - create `.env` file in root directory with content `REACT_APP_GIANT_BOMB_API_KEY=your API key`
