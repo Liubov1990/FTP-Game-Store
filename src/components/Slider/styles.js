@@ -9,6 +9,7 @@ export const styles = () => ({
       width: "auto",
       display: "flex",
       flexDirection: "column",
+      zIndex: "1000",
     },
     // end reactCarouselOverride
 
@@ -21,7 +22,14 @@ export const styles = () => ({
       height: "425px",
     }
   },
-  indicatorStyles: {
+  sliderItem: {
+    maxHeight: "425px",
+  },
+  indicatorsWrap: {
+    display: "flex",
+    alignItems: "center"
+  },
+  indicator: {
     background: "#fff",
     width: "10px",
     height: "10px",
@@ -33,20 +41,6 @@ export const styles = () => ({
     "&.active": {
       background: "#000"
     },
-  },
-    sliderItem: {
-    maxHeight: "425px",
-  },
-  contentWrapper: {
-    display: "flex",
-    justifyContent: "space-between",
-    maxWidth: "1440px",
-    margin: "0 auto",
-
-  },
-  indicatorWrap: {
-    display: "flex",
-    alignItems: "center"
   },
   title: {
     color: "#ffffff",
@@ -61,7 +55,7 @@ export const styles = () => ({
   playNow: {
     position: "absolute",
     top: "145px",
-    right: "12px",
+    right: 0,
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -138,7 +132,19 @@ export const styles = () => ({
     fill: "#8b0000",
     marginRight: "10px"
   },
-  
+
+  "@media(min-width: 2560px)": {
+    slider: {
+      "& .carousel-root .carousel .control-dots": {
+        left: "538px",
+      },
+    },
+    playNow: {
+      right: "525px",
+
+    }
+  },
+
   "@media(max-width: 768px)": {
     slider: {
       height: "240px",
