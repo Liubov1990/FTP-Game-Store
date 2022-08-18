@@ -53,7 +53,7 @@ In case you see network error, it means, that you do not have permission to use 
 
 ## Notes
 
-At the moment game data API is using with [thingproxy](https://github.com/Freeboard/thingproxy) proxy server. But you can use any third-party proxy or you own proxy server for correct processing of API calls without CORS errors.
+At the moment game data API is using with [thingproxy](https://github.com/Freeboard/thingproxy) proxy server. But you can use any third-party proxy or your own proxy server for correct processing of API calls without CORS errors.
 
 Project powered with [GIANT BOMB API](https://www.giantbomb.com/api/), [Free-To-Play Games Database API](https://www.freetogame.com/api-doc).
 
