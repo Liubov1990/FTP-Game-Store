@@ -1,12 +1,13 @@
 import React from "react";
 import { useSelector } from "react-redux";
 // material-ui
-import { Button, Link } from "@material-ui/core";
+import { Link } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 // styles
 import { styles } from "./styles";
 // components
 import ThumbnailSlider from "../ThumbnailSlider";
+import ButtonComponent from "../ButtonComponent";
 
 const useStyles = makeStyles(styles);
 
@@ -41,9 +42,7 @@ function GlanceGameInfo() {
               <h4>Publisher: </h4><span className={classes.info}>{gameDetails?.publisher}</span>
             </div>
             <Link href={gameDetails?.game_url} target="_blank" className={classes.linkDecoration}>
-              <Button variant="contained" classes={{ root: classes.buttonRoot }}>
-                Play now
-              </Button>
+              <ButtonComponent value="Play now"/>
             </Link>
           </div>
         </div>

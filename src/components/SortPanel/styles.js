@@ -40,19 +40,6 @@ export const styles = () => ({
     justifyContent: "flex-end",
     width: "30%",
   },
-  buttonRoot: {
-    minWidth: "118px",
-    height: "38px",
-    fontFamily: "'Iceland', cursive",
-    color: "#ffffff",
-    backgroundColor: "#8b0000",
-    boxShadow: "none",
-    marginLeft: "30px",
-    "&:hover": {
-      color: "#8b0000",
-      backgroundColor: "#ffffff"
-    }
-  },
   
   "@media(max-width: 576px)": {
     form: {
@@ -68,9 +55,5 @@ export const styles = () => ({
       width: "100%",
       justifyContent: "flex-start",
     },
-    buttonRoot: {
-      marginLeft: 0,
-      marginRight: "30px",
-    }
   }
 });

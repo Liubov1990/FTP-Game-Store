@@ -70,19 +70,6 @@ export const styles = () => ({
     height: "100px",
     display: "inline-block"
   },
-  buttonRoot: {
-    width: "118px",
-    height: "38px",
-    fontFamily: "'Iceland', cursive",
-    color: "#ffffff",
-    backgroundColor: "#8b0000",
-    textDecoration: "none",
-    boxShadow: "none",
-    "&:hover": {
-      color: "#8b0000",
-      textDecoration: "none"
-    }
-  },
   sliderBar: {
     position: "absolute",
     bottom: 0,
@@ -141,7 +128,6 @@ export const styles = () => ({
     },
     playNow: {
       right: "525px",
-
     }
   },
 

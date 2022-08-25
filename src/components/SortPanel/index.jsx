@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 // material-ui
-import { Paper, Button } from "@material-ui/core";
+import { Paper } from "@material-ui/core";
 // actions
 import { getGamesListAsync, setPage } from "../../redux/actions/imagesSearchActions";
 import { resetFields } from "../../redux/actions/sortPanelActions";
@@ -9,6 +9,7 @@ import { resetFields } from "../../redux/actions/sortPanelActions";
 import { formInputs } from "../../constants/sortPanelForm";
 // components
 import SortPanelDropdown from "./SortPanelDropdown";
+import ButtonComponent from "../ButtonComponent";
 // utils
 import { debounce } from "./../../utils";
 // styles
@@ -47,22 +48,18 @@ function SortPanel() {
           ))}
         </form>
         <div className={classes.buttons}>
-          <Button
-            variant="contained"
+          <ButtonComponent
+            value="Sort"
+            padded="true"
             disabled={status === "FAILURE"}
-            classes={{ root: classes.buttonRoot }}
             onClick={peventedMultiRequest}
-          >
-            Sort
-          </Button>
-          <Button
-            variant="contained"
+          />
+          <ButtonComponent
+            value="Reset"
+            padded="true"
             disabled={isResetDisabled}
-            classes={{ root: classes.buttonRoot }}
             onClick={resetAllFields}
-          >
-            reset
-          </Button>
+          />
         </div>
       </div>
     </Paper>

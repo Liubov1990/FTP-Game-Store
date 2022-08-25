@@ -35,6 +35,9 @@ export const styles = () => ({
     "& h4": {
       marginRight: "5px"
     },
+    "& button": {
+      marginTop: "15px",
+    },
   },
   info: {
     fontFamily: "Prompt",
@@ -45,19 +48,6 @@ export const styles = () => ({
   },
   linkDecoration: {
     "&:hover": {
-      textDecoration: "none"
-    }
-  },
-  buttonRoot: {
-    width: "180px",
-    height: "38px",
-    fontFamily: "'Iceland', cursive",
-    color: "#ffffff",
-    backgroundColor: "#8b0000",
-    boxShadow: "none",
-    marginTop: "15px",
-    "&:hover": {
-      color: "#8b0000",
       textDecoration: "none"
     }
   },

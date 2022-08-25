@@ -25,19 +25,6 @@ export const styles = () => ({
   noBereak: {
     display: "inline-block",
   },
-  buttonRoot: {
-    width: "130px",
-    height: "38px",
-    fontFamily: "'Iceland', cursive",
-    color: "#ffffff",
-    backgroundColor: "#8b0000",
-    textDecoration: "none",
-    boxShadow: "none",
-    "&:hover": {
-      color: "#8b0000",
-      textDecoration: "none",
-    },
-  },
   playIcon: {
     verticalAlign: "bottom"
   },

@@ -2,8 +2,10 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 // material-ui
 import { makeStyles } from "@material-ui/core/styles";
-import { Button, Paper } from "@material-ui/core";
+import { Paper } from "@material-ui/core";
 import GpsFixedIcon from "@material-ui/icons/GpsFixed";
+// components
+import ButtonComponent from "../ButtonComponent";
 // styles
 import { styles } from "./styles";
 
@@ -30,9 +32,7 @@ function Header() {
         </Link>
         {location.pathname !== "/" && (
           <Link to={`/`}>
-            <Button variant="contained" classes={{ root: classes.buttonRoot }}>
-              Back home
-            </Button>
+            <ButtonComponent value="Back home"/>
           </Link>
         )}
       </div>

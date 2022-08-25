@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 // material-ui
-import { Button, Link } from "@material-ui/core";
+import { Link } from "@material-ui/core";
 import ImportantDevicesIcon from "@material-ui/icons/ImportantDevices";
 import FindReplaceIcon from "@material-ui/icons/FindReplace";
 import { makeStyles } from "@material-ui/core/styles";
@@ -9,6 +9,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { Carousel } from "react-responsive-carousel";
 // components
 import Pending from "../../components/Pending";
+import ButtonComponent from "../ButtonComponent";
 // actions
 import { clearRandomImagesState } from "../../redux/actions/imagesSearchActions";
 // styles
@@ -52,10 +53,7 @@ function Slider() {
                   queueMicrotask(() => setActiveSlideData(currentSlide));
                   return (
                     <div className={classes.indicatorsWrap}>
-                      <li
-                        className={`${classes.indicator} active`}
-                        aria-label={`Selected: ${label} ${index + 1}`}
-                      />
+                      <li className={`${classes.indicator} active`} aria-label={`Selected: ${label} ${index + 1}`} />
                       <span className={classes.title}>{currentSlide.title}</span>
                     </div>
                   );
@@ -85,9 +83,7 @@ function Slider() {
             <div className={classes.playNow}>
               <img src={`${process.env.PUBLIC_URL}/images/be_a_hero.png`} alt="" className={classes.gameLogo} />
               <Link href={activeSlideData?.game_url} target="_blank">
-                <Button variant="contained" classes={{ root: classes.buttonRoot }}>
-                  Play now
-                </Button>
+                <ButtonComponent value="Play now" />
               </Link>
             </div>
             <div className={classes.sliderBar}>
