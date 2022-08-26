@@ -1,7 +1,7 @@
 import { getGamesListRequest } from "../../api";
 import { getSpecificDataRequest } from "../../api";
 import { pageElementsAmount } from "../../constants/pagination";
-import { showSnackbarFailure } from "./appActions";
+import { showSnackbarFailure } from "./snackbarActions";
 
 export const SET_IMAGES = "SET_IMAGES";
 export const SET_RANDOM_IMAGES = "SET_RANDOM_IMAGES";

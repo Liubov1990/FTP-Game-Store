@@ -1,12 +1,12 @@
 import {
   SHOW_SNACKBAR_FAILURE,
   CLEAR_SNACKBAR_FAILURE,
-} from "./../actions/appActions"
+} from "../actions/snackbarActions"
 
 export const initialAppState = {
   failureSnackbarOpen: false,
 };
-export const appReducer = (state = initialAppState, action) => {
+export const snackbarReducer = (state = initialAppState, action) => {
   const { type } = action;
   switch (type) {
     case SHOW_SNACKBAR_FAILURE:

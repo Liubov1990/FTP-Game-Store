@@ -1,12 +1,12 @@
 import { combineReducers } from "redux";
 
-import { appReducer } from "./appReducer";
+import { snackbarReducer } from "./snackbarReducer";
 import { imagesSearchReducer } from "./imagesSearchReducer";
 import { sortPanelReducer } from "./sortPanelReducer";
 import { gamePageReducer } from "./gamePageReducer";
 
 const rootReducer = combineReducers({
-  appReducer,
+  snackbarReducer,
   imagesSearchReducer,
   sortPanelReducer,
   gamePageReducer

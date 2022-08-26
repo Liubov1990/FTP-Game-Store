@@ -5,12 +5,12 @@ import Snackbar from "@material-ui/core/Snackbar";
 import Alert from "@material-ui/lab/Alert";
 
 // actions
-import { clearSnackbarFailure } from "./../redux/actions/appActions";
+import { clearSnackbarFailure } from "../redux/actions/snackbarActions";
 
 export default function FailureSnackbar() {
   const dispatch = useDispatch();
 
-  const { failureSnackbarOpen } = useSelector(state => state.appReducer);
+  const { failureSnackbarOpen } = useSelector(state => state.snackbarReducer);
 
   function handleClose() {
     dispatch(clearSnackbarFailure());
