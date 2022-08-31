@@ -6,13 +6,14 @@ import Alert from "@material-ui/lab/Alert";
 
 // actions
 import { clearSnackbarFailure } from "../redux/actions/snackbarActions";
+import { RootState } from "../redux/store";
 
-export default function FailureSnackbar() {
+export default function FailureSnackbar(): React.ReactElement {
   const dispatch = useDispatch();
 
-  const { failureSnackbarOpen } = useSelector(state => state.snackbarReducer);
+  const { failureSnackbarOpen } = useSelector((state: RootState): RootState["snackbarReducer"] => state.snackbarReducer);
 
-  function handleClose() {
+  function handleClose(): void {
     dispatch(clearSnackbarFailure());
   }
 
