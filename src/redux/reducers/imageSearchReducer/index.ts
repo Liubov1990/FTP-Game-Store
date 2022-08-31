@@ -1,3 +1,4 @@
+import { IImagesSearchState } from "./types";
 import {
   SET_IMAGES,
   SET_RANDOM_IMAGES,
@@ -5,28 +6,29 @@ import {
   SET_TOTAL_PAGES,
   SET_SLIDE_DATA_PENDING,
   SET_SLIDE_DATA_FAILURE,
-  CLEAR_RANDOM_IMAGES_STATE } from "../actions/imagesSearchActions";
+  CLEAR_RANDOM_IMAGES_STATE,
+  ImagesSearchActionType
+} from "../../actions/imagesSearchActions/types";
 
-const initialState = {
+const initialState: IImagesSearchState = {
   gamesList: [],
   randomImagesList: [],
   page: 1,
   totalPages: 1,
-  status: "NOT_ASKED",
+  status: "NOT_ASKED"
 };
 
-
-export const imagesSearchReducer = (state = initialState, action) => {
-  const { type, payload } = action;
+export const imagesSearchReducer = (state = initialState, action: ImagesSearchActionType): IImagesSearchState => {
+  const { type } = action;
   switch (type) {
     case SET_IMAGES:
-      return { ...state, gamesList: payload, status: "SUCCESS" };
+      return { ...state, gamesList: action.payload, status: "SUCCESS" };
     case SET_RANDOM_IMAGES:
-      return { ...state, randomImagesList: payload, status: "SUCCESS" };
+      return { ...state, randomImagesList: action.payload, status: "SUCCESS" };
     case SET_PAGE:
-      return { ...state, page: payload };
+      return { ...state, page: action.payload };
     case SET_TOTAL_PAGES:
-      return { ...state, totalPages: payload };
+      return { ...state, totalPages: action.payload };
     case SET_SLIDE_DATA_PENDING:
       return { ...state, status: "PENDING" };
     case SET_SLIDE_DATA_FAILURE:

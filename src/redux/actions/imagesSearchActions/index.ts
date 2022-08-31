@@ -1,18 +1,33 @@
-import { getGamesListRequest } from "../../api";
-import { getSpecificDataRequest } from "../../api";
-import { pageElementsAmount } from "../../constants/pagination";
-import { showSnackbarFailure } from "./snackbarActions";
-
-export const SET_IMAGES = "SET_IMAGES";
-export const SET_RANDOM_IMAGES = "SET_RANDOM_IMAGES";
-export const SET_PAGE = "SET_PAGE";
-export const SET_TOTAL_PAGES = "SET_TOTAL_PAGES";
-export const SET_SLIDE_DATA_PENDING = "SET_SLIDE_DATA_PENDING";
-export const SET_SLIDE_DATA_FAILURE = "SET_SLIDE_DATA_FAILURE";
-export const CLEAR_RANDOM_IMAGES_STATE = "CLEAR_RANDOM_IMAGES_STATE";
+// api
+import { getGamesListRequest } from "../../../api";
+import { getSpecificDataRequest } from "../../../api";
+// store
+import { AppDispatch, RootState } from "../../store";
+// reducers
+import { IGameInfo, IFullGameInfo } from "../../reducers/imageSearchReducer/types";
+// actions
+import {
+  SET_IMAGES,
+  SET_RANDOM_IMAGES,
+  SET_PAGE,
+  SET_TOTAL_PAGES,
+  SET_SLIDE_DATA_PENDING,
+  SET_SLIDE_DATA_FAILURE,
+  CLEAR_RANDOM_IMAGES_STATE,
+  ISetRandomImagesAction,
+  ISetPageAction,
+  ISetImagesAction,
+  ISetTotalPagesAction,
+  ISetSlideDataPendingAction,
+  ISetSlideDataFailureAction,
+  IClearRandomImagesStateAction
+} from "./../imagesSearchActions/types";
+import { showSnackbarFailure } from "../snackbarActions";
+// constants
+import { pageElementsAmount } from "../../../constants/pagination";
 
 export const getGamesListAsync = () => {
-  return async (dispatch, getState) => {
+  return async (dispatch: AppDispatch, getState: () => RootState) => {
     const {
       sortPanelReducer: { platformField, categoryField, orderField }
     } = getState();
@@ -33,8 +48,8 @@ export const getGamesListAsync = () => {
   };
 };
 
-export const getSpecificImageAsync = data => {
-  return async dispatch => {
+export const getSpecificImageAsync = (data: IGameInfo[]) => {
+  return async (dispatch: AppDispatch) => {
     const getRandomImage = async () => {
       const randomImage = Math.floor(Math.random() * data.length - 1);
       const randomImageId = data[randomImage]?.id;
@@ -53,47 +68,47 @@ export const getSpecificImageAsync = data => {
   };
 };
 
-export const setImages = imagesData => {
+export const setImages = (imagesData: IGameInfo[]): ISetImagesAction => {
   return {
     type: SET_IMAGES,
     payload: imagesData
   };
 };
 
-export const setRandomImages = imagesRandomData => {
+export const setRandomImages = (imagesRandomData: IFullGameInfo[]): ISetRandomImagesAction => {
   return {
     type: SET_RANDOM_IMAGES,
     payload: imagesRandomData
   };
 };
 
-export const setPage = pageData => {
+export const setPage = (pageData: number): ISetPageAction => {
   return {
     type: SET_PAGE,
     payload: pageData
   };
 };
 
-export const setTotalPages = totalPagesData => {
+export const setTotalPages = (totalPagesData: number ): ISetTotalPagesAction => {
   return {
     type: SET_TOTAL_PAGES,
     payload: totalPagesData
   };
 };
 
-export const setSlideDataPending = () => {
+export const setSlideDataPending = (): ISetSlideDataPendingAction => {
   return {
     type: SET_SLIDE_DATA_PENDING
   };
 };
 
-export const setSlideDataFailure = () => {
+export const setSlideDataFailure = (): ISetSlideDataFailureAction => {
   return {
     type: SET_SLIDE_DATA_FAILURE
   };
 };
 
-export const clearRandomImagesState = () => {
+export const clearRandomImagesState = (): IClearRandomImagesStateAction => {
   return {
     type: CLEAR_RANDOM_IMAGES_STATE,
   };

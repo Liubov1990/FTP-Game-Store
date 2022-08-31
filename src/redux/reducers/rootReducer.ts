@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
-
+// reducers
 import { snackbarReducer } from "./snackbarReducer";
-import { imagesSearchReducer } from "./imagesSearchReducer";
+import { imagesSearchReducer } from "./imageSearchReducer";
 import { sortPanelReducer } from "./sortPanelReducer";
 import { gamePageReducer } from "./gamePageReducer";
 

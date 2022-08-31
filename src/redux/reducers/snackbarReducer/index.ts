@@ -1,12 +1,14 @@
+import { ISnackbarState } from "./types";
 import {
   SHOW_SNACKBAR_FAILURE,
   CLEAR_SNACKBAR_FAILURE,
-} from "../actions/snackbarActions"
+  SnackbarActionType,
+} from "../../actions/snackbarActions/types"
 
-export const initialAppState = {
+export const initialState: ISnackbarState = {
   failureSnackbarOpen: false,
 };
-export const snackbarReducer = (state = initialAppState, action) => {
+export const snackbarReducer = (state = initialState, action: SnackbarActionType): ISnackbarState => {
   const { type } = action;
   switch (type) {
     case SHOW_SNACKBAR_FAILURE:
