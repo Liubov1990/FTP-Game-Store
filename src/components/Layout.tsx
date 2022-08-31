@@ -1,9 +1,13 @@
-import React, { useEffect } from "react";
+import React, { useEffect, ReactElement } from "react";
 import { useLocation } from "react-router-dom";
 // components
 import Header from "./Header";
 
-function Layout({ children }) {
+interface LayoutProps {
+  children: ReactElement,
+}
+
+function Layout({children}: LayoutProps): ReactElement {
   const { pathname } = useLocation();
 
   useEffect(() => {
