@@ -12,6 +12,11 @@ export interface IGameInfo {
   freetogame_profile_url: string;
 }
 
+export type ScreenshotsType = {
+  id?: number;
+  image?: string;
+};
+
 export interface IFullGameInfo {
   description: string;
   developer: string;
@@ -29,7 +34,7 @@ export interface IFullGameInfo {
   platform: string;
   publisher: string;
   release_date: Date;
-  screenshots?: { id?: number; image?: string }[];
+  screenshots?: ScreenshotsType[];
   short_description: string;
   status: string;
   thumbnail?: string;

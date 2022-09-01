@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState, ReactElement } from "react";
 import { useSelector } from "react-redux";
 // material-ui
 import { makeStyles } from "@material-ui/core/styles";
@@ -6,21 +6,26 @@ import { makeStyles } from "@material-ui/core/styles";
 import { Carousel } from "react-responsive-carousel";
 // styles
 import { styles } from "./styles";
+import { RootState } from "../../redux/store";
+import { ScreenshotsType } from "../../redux/reducers/imageSearchReducer/types";
 
 const useStyles = makeStyles(styles);
 
-function ThumbnailSlider() {
+function ThumbnailSlider(): ReactElement {
   const classes = useStyles();
 
-  const { gameDetails } = useSelector(state => state.gamePageReducer);
-  const [screenshots, setScreenshots] = React.useState([]);
+  const { gameDetails } = useSelector((state: RootState) => state.gamePageReducer);
+  const [screenshots, setScreenshots] = useState<ScreenshotsType[]>([]);
 
   useEffect(() => {
     if (Object.keys(gameDetails).length) {
       const defaultImage = {
-        id: "defaultImageId",
+        id: Date.now(),
         image: gameDetails?.thumbnail
       };
+
+      console.log(defaultImage.id);
+      
       if (gameDetails?.screenshots?.length) {
         setScreenshots([defaultImage, ...gameDetails?.screenshots]);
       }
@@ -35,7 +40,7 @@ function ThumbnailSlider() {
           <Carousel
             autoPlay
             infiniteLoop={true}
-            interval="10000"
+            interval={10000}
             showStatus={false}
             showArrows={false}
             showIndicators={false}
