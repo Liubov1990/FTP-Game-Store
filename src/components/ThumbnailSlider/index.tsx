@@ -14,7 +14,7 @@ const useStyles = makeStyles(styles);
 function ThumbnailSlider(): ReactElement {
   const classes = useStyles();
 
-  const { gameDetails } = useSelector((state: RootState) => state.gamePageReducer);
+  const { gameDetails } = useSelector((state: RootState): RootState["gamePageReducer"] => state.gamePageReducer);
   const [screenshots, setScreenshots] = useState<ScreenshotsType[]>([]);
 
   useEffect(() => {
