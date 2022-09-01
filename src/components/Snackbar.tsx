@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactElement } from "react";
 import { useDispatch, useSelector } from "react-redux";
 // material-ui
 import Snackbar from "@material-ui/core/Snackbar";
@@ -8,7 +8,7 @@ import Alert from "@material-ui/lab/Alert";
 import { clearSnackbarFailure } from "../redux/actions/snackbarActions";
 import { RootState } from "../redux/store";
 
-export default function FailureSnackbar(): React.ReactElement {
+export default function FailureSnackbar(): ReactElement {
   const dispatch = useDispatch();
 
   const { failureSnackbarOpen } = useSelector((state: RootState): RootState["snackbarReducer"] => state.snackbarReducer);
