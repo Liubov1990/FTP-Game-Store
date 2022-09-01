@@ -24,8 +24,6 @@ function ThumbnailSlider(): ReactElement {
         image: gameDetails?.thumbnail
       };
 
-      console.log(defaultImage.id);
-      
       if (gameDetails?.screenshots?.length) {
         setScreenshots([defaultImage, ...gameDetails?.screenshots]);
       }
