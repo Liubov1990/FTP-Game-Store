@@ -1,26 +1,27 @@
-import React, { useEffect } from "react";
+import React, { ReactElement, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 // material-ui
 import { makeStyles } from "@material-ui/core/styles";
 import { Paper } from "@material-ui/core";
-// actions
+// redux
+import { RootState } from "../../redux/store";
 import { getGamesListAsync } from "../../redux/actions/imagesSearchActions";
 // constants
 import { pageElementsAmount } from "../../constants/pagination";
 // components
-import Pagination from "../../components/Pagination";
+import Pagination from "../Pagination";
 // styles
 import { styles } from "./styles";
 
 const useStyles = makeStyles(styles);
 
-function GamesGrid() {
+function GamesGrid(): ReactElement {
   const classes = useStyles();
   const history = useHistory();
   const dispatch = useDispatch();
 
-  const { gamesList, page, status } = useSelector(state => state.imagesSearchReducer);
+  const { gamesList, page, status } = useSelector((state: RootState): RootState["imagesSearchReducer"] => state.imagesSearchReducer);
 
   const firstIndex = page === 1 ? 0 : (page - 1) * pageElementsAmount;
   const elementsPerPage = gamesList.slice(firstIndex, firstIndex + pageElementsAmount);
@@ -29,7 +30,7 @@ function GamesGrid() {
     dispatch(getGamesListAsync());
   }, [dispatch]);
 
-  const makeRedirect = id => {
+  const makeRedirect = (id: number) => {
     history.push(`/games/${id}`);
   };
 

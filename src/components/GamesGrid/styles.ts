@@ -1,6 +1,7 @@
+import { IStyles } from "../../types/index.js";
 import { sixCols, fourCols, fourColsSlim, threeCols } from "../../constants/gridCols.js";
 
-export const styles = () => ({
+export const styles = (): IStyles => ({
   gridContainer: {
     display: "grid",
     gap: "10px",
