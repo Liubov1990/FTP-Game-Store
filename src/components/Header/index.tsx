@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactElement } from "react";
 import { Link, useLocation } from "react-router-dom";
 // material-ui
 import { makeStyles } from "@material-ui/core/styles";
@@ -11,7 +11,7 @@ import { styles } from "./styles";
 
 const useStyles = makeStyles(styles);
 
-function Header() {
+function Header(): ReactElement {
   const location = useLocation();
   const classes = useStyles();
 

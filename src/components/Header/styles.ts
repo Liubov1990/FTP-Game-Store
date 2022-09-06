@@ -1,4 +1,6 @@
-export const styles = () => ({
+import { IStyles } from "../../types";
+
+export const styles = (): IStyles => ({
   rootPaper: {
     minHeight: "76px",
     padding: "0 24px",
