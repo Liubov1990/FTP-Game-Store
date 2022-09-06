@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactElement } from "react";
 import { useSelector } from "react-redux";
 // material-ui
 import { makeStyles } from "@material-ui/core/styles";
@@ -6,12 +6,13 @@ import { Chip } from "@material-ui/core";
 
 // styles
 import { styles } from "./styles";
+import { RootState } from "../../redux/store";
 
 const useStyles = makeStyles(styles);
 
-function SimilarGames() {
+function SimilarGames(): ReactElement {
   const classes = useStyles();
-  const { similarGames } = useSelector(state => state.gamePageReducer);
+  const { similarGames } = useSelector((state: RootState): RootState["gamePageReducer"] => state.gamePageReducer);
 
   return (
     <div className={classes.similarGames}>
