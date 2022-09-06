@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactElement } from "react";
 import { useSelector } from "react-redux";
 // material-ui
 import { Link } from "@material-ui/core";
@@ -8,12 +8,13 @@ import { styles } from "./styles";
 // components
 import ThumbnailSlider from "../ThumbnailSlider";
 import ButtonComponent from "../ButtonComponent";
+import { RootState } from "../../redux/store";
 
 const useStyles = makeStyles(styles);
 
-function GlanceGameInfo() {
+function GlanceGameInfo(): ReactElement {
   const classes = useStyles();
-  const { gameDetails } = useSelector(state => state.gamePageReducer);
+  const { gameDetails } = useSelector((state: RootState): RootState["gamePageReducer"] => state.gamePageReducer);
 
   return (
     <div className={classes.glanceInfoWrap}>

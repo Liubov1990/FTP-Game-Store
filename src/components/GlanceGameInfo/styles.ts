@@ -1,4 +1,6 @@
-export const styles = () => ({
+import { IStyles } from "../../types";
+
+export const styles = (): IStyles => ({
   glanceInfoWrap: {
     display: "flex",
     justifyContent: "center",
