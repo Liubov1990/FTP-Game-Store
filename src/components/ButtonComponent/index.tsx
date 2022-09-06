@@ -8,7 +8,7 @@ import { buttonStyles } from "./styles";
 const useStyles = makeStyles(buttonStyles);
 
 interface IButtonComponentProps extends ButtonProps {
-  padded: boolean,
+  padded?: boolean,
 }
 
 function ButtonComponent({ value, disabled, padded, ...rest }: IButtonComponentProps): ReactElement {

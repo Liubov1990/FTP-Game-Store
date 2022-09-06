@@ -1,4 +1,6 @@
-export const styles = () => ({
+import { IStyles } from "../../types";
+
+export const styles = (): IStyles => ({
   slider: {
     position: "relative",
     width: "100%",
@@ -60,7 +62,7 @@ export const styles = () => ({
     flexDirection: "column",
     alignItems: "center",
     width: "310px",
-    zIndex: "1000",
+    zIndex: 1000,
     "& > a:hover": {
       textDecoration: "none"
     }

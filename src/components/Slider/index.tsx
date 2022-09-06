@@ -1,29 +1,33 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect, ReactElement } from "react";
 import { useDispatch, useSelector } from "react-redux";
 // material-ui
 import { Link } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
+import { ClassNameMap } from "@material-ui/core/styles/withStyles";
 import ImportantDevicesIcon from "@material-ui/icons/ImportantDevices";
 import FindReplaceIcon from "@material-ui/icons/FindReplace";
-import { makeStyles } from "@material-ui/core/styles";
 // react-responsive-carousel
 import { Carousel } from "react-responsive-carousel";
 // components
-import Pending from "../../components/Pending";
+import Pending from "../Pending";
 import ButtonComponent from "../ButtonComponent";
 // actions
 import { clearRandomImagesState } from "../../redux/actions/imagesSearchActions";
 // styles
 import { styles } from "./styles";
+import { RootState } from "../../redux/store";
+import { IFullGameInfo } from "../../redux/reducers/imageSearchReducer/types";
 
 const useStyles = makeStyles(styles);
 
-function Slider() {
-  const classes = useStyles();
+function Slider(): ReactElement {
+
+  const classes: ClassNameMap = useStyles();
   const dispatch = useDispatch();
 
-  const { randomImagesList, status } = useSelector(state => state.imagesSearchReducer);
+  const { randomImagesList, status } = useSelector((state: RootState): RootState["imagesSearchReducer"] => state.imagesSearchReducer);
 
-  const [activeSlideData, setActiveSlideData] = React.useState(null);
+  const [activeSlideData, setActiveSlideData] = useState<IFullGameInfo | void>();  
 
   useEffect(() => {
     return function cleanUp() {
@@ -41,7 +45,7 @@ function Slider() {
             <Carousel
               autoPlay
               infiniteLoop
-              interval="5000"
+              interval={5000}
               showStatus={false}
               showArrows={false}
               showThumbs={false}
@@ -72,7 +76,7 @@ function Slider() {
                 );
               }}
             >
-              {randomImagesList.map(value => {
+              {randomImagesList.map((value) => {
                 return (
                   <div key={value.id} className={classes.sliderItem}>
                     <img src={value.screenshots[0]?.image} alt="" height="100%" width="100%" />

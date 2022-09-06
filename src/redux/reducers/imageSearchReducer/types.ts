@@ -33,8 +33,8 @@ export interface IFullGameInfo {
   };
   platform: string;
   publisher: string;
-  release_date: Date;
-  screenshots?: ScreenshotsType[];
+  release_date: string;
+  screenshots: ScreenshotsType[];
   short_description: string;
   status: string;
   thumbnail?: string;
