@@ -1,4 +1,6 @@
-export const styles = () => ({
+import { IStyles } from "../../types";
+
+export const styles = (): IStyles => ({
   searchOptions: {
     display: "flex",
     flexWrap: "wrap",

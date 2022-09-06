@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactElement } from "react";
 import { useSelector, useDispatch } from "react-redux";
 // material-ui
 import { Paper } from "@material-ui/core";
@@ -11,28 +11,30 @@ import { formInputs } from "../../constants/sortPanelForm";
 import SortPanelDropdown from "./SortPanelDropdown";
 import ButtonComponent from "../ButtonComponent";
 // utils
-import { debounce } from "./../../utils";
+import { debounce } from "../../utils";
 // styles
 import { makeStyles } from "@material-ui/core/styles";
 import { styles } from "./styles";
+import { RootState } from "../../redux/store";
+import { ClassNameMap } from "@material-ui/core/styles/withStyles";
 
 const useStyles = makeStyles(styles);
 
-function SortPanel() {
-  const classes = useStyles();
+function SortPanel(): ReactElement {
+  const classes: ClassNameMap<string> = useStyles();
   const dispatch = useDispatch();
 
-  const { platformField, categoryField, orderField } = useSelector(state => state.sortPanelReducer);
-  const { status } = useSelector(state => state.imagesSearchReducer);
+  const { platformField, categoryField, orderField } = useSelector((state: RootState): RootState["sortPanelReducer"] => state.sortPanelReducer);
+  const { status } = useSelector((state: RootState): RootState["imagesSearchReducer"] => state.imagesSearchReducer);
 
   const isResetDisabled = platformField === "all" && categoryField === "all" && orderField === "all";
 
-  const peventedMultiRequest = debounce(() => {
+  const peventedMultiRequest = debounce((): void => {
     dispatch(getGamesListAsync());
     dispatch(setPage(1));
   });
 
-  const resetAllFields = () => {
+  const resetAllFields = (): void => {
     dispatch(resetFields());
     dispatch(getGamesListAsync());
     dispatch(setPage(1));
@@ -50,13 +52,13 @@ function SortPanel() {
         <div className={classes.buttons}>
           <ButtonComponent
             value="Sort"
-            padded="true"
+            padded
             disabled={status === "FAILURE"}
             onClick={peventedMultiRequest}
           />
           <ButtonComponent
             value="Reset"
-            padded="true"
+            padded
             disabled={isResetDisabled}
             onClick={resetAllFields}
           />

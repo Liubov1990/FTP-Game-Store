@@ -1,7 +1,13 @@
 export interface ISortPanelState {
   platformField: PlatformFieldEnum;
-  categoryField: string;
-  orderField: string;
+  categoryField: CategoryFieldEnum;
+  orderField: OrderFieldEnum;
+}
+
+export enum SortPanelEnum {
+  platformField = "platformField",
+  categoryField = "categoryField",
+  orderField = "orderField",
 }
 
 export enum PlatformFieldEnum {

@@ -24,4 +24,10 @@ export interface IResetFields {
   type: typeof RESET_FIELDS;
 }
 
+export enum SortingFieldsEnum {
+  setCategoryField = "setCategoryField",
+  setPlatformField = "setPlatformField",
+  setOrderField = "setOrderField", 
+}
+
 export type SortPanelActionType = ISetPlatformField | ISetCategoryField | ISetOrderField | IResetFields;
