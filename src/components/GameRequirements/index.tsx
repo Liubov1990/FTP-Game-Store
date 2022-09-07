@@ -1,22 +1,24 @@
-import React from "react";
+import React, { ReactElement } from "react";
 import { useSelector } from "react-redux";
 // material-ui
 import { makeStyles } from "@material-ui/core/styles";
+// redux
+import { RootState } from "../../redux/store";
 // styles
 import { styles } from "./styles";
 
 const useStyles = makeStyles(styles);
 
-function GameRequirements() {
+function GameRequirements(): ReactElement {
   const classes = useStyles();
-  const details = useSelector(state => state.gamePageReducer.gameDetails?.minimum_system_requirements || {});
+  const details = useSelector((state: RootState): RootState["gamePageReducer"]["gameDetails"]["minimum_system_requirements"] | void => state.gamePageReducer.gameDetails?.minimum_system_requirements || {} );
 
   return (
     <div className={classes.requirementsWrap}>
       <div className={classes.requirements}>
         <h2>Minimum system requirements</h2>
         <div className={classes.systemRequirements}>
-          {Object.keys(details)?.length !== 0 ? (
+          {Object.keys(details as object).length !== 0 ? (
             <div className={classes.systemRequirementsInfo}>
               <div>
                 <h4>Os: </h4>
