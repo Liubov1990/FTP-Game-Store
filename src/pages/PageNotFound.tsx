@@ -1,9 +1,9 @@
-import React from "react";
+import React, { ReactElement } from "react";
 // components
 import Layout from "../components/Layout";
 import Error from "../components/Error";
 
-function NoPage() {
+function NoPage(): ReactElement {
   return (
     <Layout>
       <Error />
