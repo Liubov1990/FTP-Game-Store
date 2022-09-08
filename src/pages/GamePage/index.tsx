@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { ReactElement, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 // material-ui
@@ -10,23 +10,25 @@ import GlanceGameInfo from "../../components/GlanceGameInfo";
 import GameDescription from "../../components/GameDescription";
 import GameRequirements from "../../components/GameRequirements";
 import SimilarGames from "../../components/SimilarGames";
-// actions
-import {
-  getSpecificDataAsync,
-  clearGamePageState
-} from "../../redux/actions/gamePageActions";
+// redux
+import { RootState } from "../../redux/store";
+import { getSpecificDataAsync, clearGamePageState } from "../../redux/actions/gamePageActions";
 // styles
 import { styles } from "./styles";
 
 const useStyles = makeStyles(styles);
 
-function GamePage() {
+type IdRouteParams = {
+  id: string;
+};
+
+function GamePage(): ReactElement {
   const classes = useStyles();
   const dispatch = useDispatch();
-  const { id } = useParams();
+  const { id } = useParams<IdRouteParams>();
 
-  const { status } = useSelector(state => state.gamePageReducer);
-  
+  const { status } = useSelector((state: RootState): RootState["gamePageReducer"] => state.gamePageReducer);
+
   useEffect(() => {
     dispatch(getSpecificDataAsync(id));
 
@@ -35,18 +37,20 @@ function GamePage() {
     };
   }, [dispatch, id]);
 
-  return (
-    <Layout>
-      {status === "FAILURE" && <Error />}
-      {status === "SUCCESS" && (
-        <div className={classes.gameInfo}>
-          <GlanceGameInfo />
-          <GameDescription />
-          <GameRequirements />
-          <SimilarGames />
-        </div>
-      )}
-    </Layout>
-  );
+  const returnContent = (): ReactElement => {
+    if (status === "FAILURE") {
+     return <Error />;
+    } else if (status === "SUCCESS") {
+     return <div className={classes.gameInfo}>
+        <GlanceGameInfo />
+        <GameDescription />
+        <GameRequirements />
+        <SimilarGames />
+      </div>;
+    }
+    return <></>
+  };
+
+  return <Layout>{returnContent()}</Layout>;
 }
 export default GamePage;

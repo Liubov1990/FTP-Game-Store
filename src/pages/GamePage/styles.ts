@@ -1,4 +1,6 @@
-export const styles = () => ({
+import { IStyles } from "../../types";
+
+export const styles = ():IStyles => ({
   gameInfo: {
     width: "100%",
     textAlign: "justify",

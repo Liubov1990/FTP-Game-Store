@@ -4,10 +4,10 @@ import { useLocation } from "react-router-dom";
 import Header from "./Header";
 
 interface LayoutProps {
-  children: ReactElement,
+  children?: ReactElement | ReactElement[],
 }
 
-function Layout({children}: LayoutProps): ReactElement {
+function Layout({ children }: LayoutProps): ReactElement {
   const { pathname } = useLocation();
 
   useEffect(() => {
