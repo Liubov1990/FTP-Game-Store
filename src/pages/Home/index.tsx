@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { ReactElement, useEffect, useState } from "react";
 // material-ui
 import ExpandLessIcon from "@material-ui/icons/ExpandLess";
 import { makeStyles } from "@material-ui/core/styles";
@@ -12,8 +12,8 @@ import { styles } from "./styles";
 
 const useStyles = makeStyles(styles);
 
-function Games() {
-  const [showButtonUp, setShowButtonUp] = useState(false);
+function Games(): ReactElement {
+  const [showButtonUp, setShowButtonUp] = useState<boolean>(false);
   const classes = useStyles();
 
   useEffect(() => {
@@ -24,7 +24,7 @@ function Games() {
     };
   }, []);
 
-  function toTop() {
+  function toTop(): void {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   }
 
