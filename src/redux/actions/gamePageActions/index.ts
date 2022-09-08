@@ -19,11 +19,12 @@ import {
   ISetSimilarGamesAction,
 } from "../../actions/gamePageActions/types"
 
-export const getSpecificDataAsync = (id: string) => {
+export const getSpecificDataAsync = (id: number) => {
   return async (dispatch: AppDispatch) => {
     dispatch(setSpecificDataPending());
     try {
       const { data } = await getSpecificDataRequest(id);
+
       dispatch(setSpecificData(data));
       dispatch(getGameDataAsync());
     } catch (error) {
@@ -39,19 +40,15 @@ export const getGameDataAsync = () => {
     } = getState();
     try {
       const queryTitle = gameDetails?.title?.length ? gameDetails?.title : "";
-
       const {
         data: { results }
       } = await getGuidRequest(queryTitle);
-      const guid = results[0]?.guid;
-
+      const guid: string = results[0]?.guid;      
       const gameData = await getGameDataRequest(guid);
-      
       const gameDataResults = gameData?.data.results;
       const similarGames = gameDataResults?.similar_games;
 
       dispatch(setSimilarGames(similarGames));
-
     } catch (error) {
     }
   };

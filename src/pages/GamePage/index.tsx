@@ -30,7 +30,7 @@ function GamePage(): ReactElement {
   const { status } = useSelector((state: RootState): RootState["gamePageReducer"] => state.gamePageReducer);
 
   useEffect(() => {
-    dispatch(getSpecificDataAsync(id));
+    dispatch(getSpecificDataAsync(Number(id)));
 
     return function cleanUp() {
       dispatch(clearGamePageState());
