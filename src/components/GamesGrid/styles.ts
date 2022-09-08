@@ -1,5 +1,5 @@
 import { IStyles } from "../../types/index.js";
-import { sixCols, fourCols, fourColsSlim, threeCols } from "../../constants/gridCols.js";
+import { sixCols, fourCols, fourColsSlim, threeCols } from "../../constants/gridCols";
 
 export const styles = (): IStyles => ({
   gridContainer: {
