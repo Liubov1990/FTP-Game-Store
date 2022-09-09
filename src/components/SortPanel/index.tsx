@@ -29,10 +29,10 @@ function SortPanel(): ReactElement {
 
   const isResetDisabled = platformField === "all" && categoryField === "all" && orderField === "all";
 
-  const peventedMultiRequest = debounce((): void => {
+  const peventedMultiRequest = debounce(() => {
     dispatch(getGamesListAsync());
     dispatch(setPage(1));
-  });
+  }, 800);
 
   const resetAllFields = (): void => {
     dispatch(resetFields());
