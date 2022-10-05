@@ -1,7 +1,7 @@
-import React from "react";
+import React, { ReactNode, ComponentType } from "react";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
-import { store, persistor } from "./redux/store";
+import { store, persistor} from "./redux/store";
 import { HashRouter, Switch, Route } from "react-router-dom";
 // constants
 import { routing } from "./constants";
@@ -12,8 +12,11 @@ import NoPage from "./pages/PageNotFound";
 import "./styles/reset.css";
 
 function App() {
+  type Props = Provider["props"] & { children: ReactNode };
+  const StoreProviderOverride = Provider as unknown as ComponentType<Props>
+
   return (
-    <Provider store={store}>
+    <StoreProviderOverride store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <FailureSnackbar />
         <HashRouter>
@@ -30,7 +33,7 @@ function App() {
           </Switch>
         </HashRouter>
       </PersistGate>
-    </Provider>
+    </StoreProviderOverride>
   );
 }
 export default App;
