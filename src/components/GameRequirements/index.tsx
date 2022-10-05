@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { makeStyles } from "@material-ui/core/styles";
 // redux
 import { RootState } from "../../redux/store";
+import { MinimumSystemRequirementsType } from "../../redux/reducers/imageSearchReducer/types";
 // styles
 import { styles } from "./styles";
 
@@ -18,7 +19,7 @@ function GameRequirements(): ReactElement {
       <div className={classes.requirements}>
         <h2>Minimum system requirements</h2>
         <div className={classes.systemRequirements}>
-          {Object.keys(details as object).length !== 0 ? (
+          {Object.keys(details as MinimumSystemRequirementsType).length !== 0 ? (
             <div className={classes.systemRequirementsInfo}>
               <div>
                 <h4>Os: </h4>

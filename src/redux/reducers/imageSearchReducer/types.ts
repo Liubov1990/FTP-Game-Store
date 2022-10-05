@@ -17,6 +17,14 @@ export type ScreenshotsType = {
   image?: string;
 };
 
+export type MinimumSystemRequirementsType = {
+  os?: string;
+  processor?: string;
+  memory?: string;
+  graphics?: string;
+  storage?: string;
+};
+
 export interface IFullGameInfo {
   description: string;
   developer: string;
@@ -24,13 +32,7 @@ export interface IFullGameInfo {
   game_url: string;
   genre: string;
   id: number;
-  minimum_system_requirements?: {
-    os?: string;
-    processor?: string;
-    memory?: string;
-    graphics?: string;
-    storage?: string;
-  };
+  minimum_system_requirements?: MinimumSystemRequirementsType;
   platform: string;
   publisher: string;
   release_date: string;
