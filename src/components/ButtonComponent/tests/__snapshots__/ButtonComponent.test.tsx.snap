@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ButtonComponent: renders the component 1`] = `
+<button
+  class="MuiButtonBase-root MuiButton-root makeStyles-buttonRoot-1 MuiButton-contained"
+  tabindex="0"
+  type="button"
+>
+  <span
+    class="MuiButton-label"
+  >
+    test button
+  </span>
+  <span
+    class="MuiTouchRipple-root"
+  />
+</button>
+`;
