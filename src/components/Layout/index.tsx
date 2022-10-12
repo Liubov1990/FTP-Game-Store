@@ -1,7 +1,7 @@
 import React, { useEffect, ReactElement } from "react";
 import { useLocation } from "react-router-dom";
 // components
-import Header from "./Header";
+import Header from "../Header";
 
 interface LayoutProps {
   children?: ReactElement | ReactElement[],
