@@ -25,7 +25,7 @@ const Wrapper = ({ children }: wrapperProps): ReactElement => {
   );
 };
 
-describe("ImagesSearchReducer", () => {
+describe("GamePageReducer", () => {
   test("should render component", () => {
     const { getByTestId } = render(<GameDescription />, { wrapper: Wrapper });
 	const gameDescriptionComponent  = getByTestId("game-description")
