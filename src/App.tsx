@@ -11,10 +11,10 @@ import NoPage from "./pages/PageNotFound";
 // styles
 import "./styles/reset.css";
 
-function App() {
-  type Props = Provider["props"] & { children: ReactNode };
-  const StoreProviderOverride = Provider as unknown as ComponentType<Props>
+type Props = Provider["props"] & { children: ReactNode };
+export const StoreProviderOverride = Provider as unknown as ComponentType<Props>
 
+function App() {
   return (
     <StoreProviderOverride store={store}>
       <PersistGate loading={null} persistor={persistor}>

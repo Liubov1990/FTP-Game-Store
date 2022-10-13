@@ -14,7 +14,7 @@ function GameDescription(): ReactElement {
   const { gameDetails } = useSelector((state: RootState): RootState["gamePageReducer"] => state.gamePageReducer);
 
   return (
-    <div className={classes.parallax}>
+    <div data-testid="game-description" className={classes.parallax}>
       <div className={classes.description}>
         <h2>{gameDetails?.title}</h2>
         <p className={classes.descriptionText}>{gameDetails?.description}</p>
