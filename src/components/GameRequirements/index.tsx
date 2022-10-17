@@ -42,7 +42,7 @@ function GameRequirements(): ReactElement {
                 <span>
                   {details?.memory === "?" || details?.memory === null || details?.memory === "Not defined"
                     ? "Unavailable"
-                    : details?.memory || "Unavailable"}
+                    : details?.memory}
                 </span>
               </div>
               <div>
@@ -50,7 +50,7 @@ function GameRequirements(): ReactElement {
                 <span>
                   {details?.graphics === "?" || details?.graphics === null || details?.graphics === "Not defined"
                     ? "Unavailable"
-                    : details?.graphics || "Unavailable"}
+                    : details?.graphics}
                 </span>
               </div>
               <div>
