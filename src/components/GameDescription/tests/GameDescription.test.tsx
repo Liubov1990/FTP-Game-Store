@@ -13,7 +13,7 @@ interface wrapperProps {
 const middlewares = [thunk];
 const mockStore = configureStore(middlewares);
 const store = mockStore({
-  gamePageReducer: { gameDetails: { gameDetails: {}, similarGames: [], status: "NOT_ASKED" } }
+  gamePageReducer: { gameDetails: { title: "test-game-title" }, similarGames: [], status: "NOT_ASKED" }
 });
 store.dispatch = jest.fn();
 
@@ -27,8 +27,8 @@ const Wrapper = ({ children }: wrapperProps): ReactElement => {
 
 describe("GamePageReducer", () => {
   test("should render component", () => {
-    const { getByTestId } = render(<GameDescription />, { wrapper: Wrapper });
-	const gameDescriptionComponent  = getByTestId("game-description")
+    const { getByText } = render(<GameDescription />, { wrapper: Wrapper });
+    const gameDescriptionComponent = getByText("test-game-title");
     expect(gameDescriptionComponent).toBeInTheDocument();
   });
 });
