@@ -5,8 +5,8 @@ import Snackbar from "@material-ui/core/Snackbar";
 import Alert from "@material-ui/lab/Alert";
 
 // actions
-import { clearSnackbarFailure } from "../redux/actions/snackbarActions";
-import { RootState } from "../redux/store";
+import { clearSnackbarFailure } from "../../redux/actions/snackbarActions";
+import { RootState } from "../../redux/store";
 
 export default function FailureSnackbar(): ReactElement {
   const dispatch = useDispatch();
