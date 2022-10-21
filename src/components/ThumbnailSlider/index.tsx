@@ -31,24 +31,23 @@ function ThumbnailSlider(): ReactElement {
   }, [gameDetails]);
 
   return (
-    <div
-    className={classes.thumbnailSlider}
-    >
+    <div className={classes.thumbnailSlider}>
       {screenshots?.length !== 0 ? (
-          <Carousel
-            autoPlay
-            infiniteLoop={true}
-            interval={10000}
-            showStatus={false}
-            showArrows={false}
-            showIndicators={false}
-          >
-            {screenshots.map(({ id, image }) => (
-              <img key={id} src={image} alt="" />
-            ))}
-          </Carousel>
+        <Carousel
+          autoPlay
+          infiniteLoop={true}
+          interval={10000}
+          showStatus={false}
+          showArrows={false}
+          showIndicators={false}
+        >
+          {screenshots.map(({ id, image }) => (
+            <img key={id} src={image} alt="" />
+          ))}
+        </Carousel>
       ) : (
         <div
+          data-testid="default-background-image"
           className={classes.resizedImage}
           style={{
             backgroundImage: `url(${gameDetails?.thumbnail})`
