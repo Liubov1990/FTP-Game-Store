@@ -39,7 +39,7 @@ function GamesGrid(): ReactElement {
       {status === "FAILURE" && <div className={`${classes.gridContainer} error`}>Something went wrong. Please, try again or wisit our site later.</div>}
       {status === "SUCCESS" && (
         <>
-          <div className={classes.gridContainer}>
+          <div className={classes.gridContainer} data-testid="grid-test">
             {elementsPerPage.map(({ id, thumbnail, title }) => (
               <Paper
                 key={id}
