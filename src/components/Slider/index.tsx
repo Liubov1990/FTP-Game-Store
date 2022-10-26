@@ -26,7 +26,6 @@ function Slider(): ReactElement {
   const dispatch = useDispatch();
 
   const { randomImagesList, status } = useSelector((state: RootState): RootState["imagesSearchReducer"] => state.imagesSearchReducer);
-
   const [activeSlideData, setActiveSlideData] = useState<IFullGameInfo | void>();  
 
   useEffect(() => {
@@ -38,8 +37,8 @@ function Slider(): ReactElement {
   return (
     <>
       <div className={classes.slider}>
-        {status === "FAILURE" && <div className={`${classes.slider} noData`}></div>}
-        {status === "PENDING" && <Pending />}
+        {status === "FAILURE" && <div data-testid="no-data-test" className={`${classes.slider} noData`}></div>}
+        {status === "PENDING" && <Pending data-testid="pending-test" />}
         {status === "SUCCESS" && (
           <>
             <Carousel
@@ -64,7 +63,7 @@ function Slider(): ReactElement {
                 }
                 return (
                   <li
-                    className={classes.indicatorStyles}
+                    className={classes.indicator}
                     onClick={onClickHandler}
                     onKeyDown={onClickHandler}
                     value={index}
