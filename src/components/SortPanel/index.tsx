@@ -2,6 +2,8 @@ import React, { ReactElement } from "react";
 import { useSelector, useDispatch } from "react-redux";
 // material-ui
 import { Paper } from "@material-ui/core";
+// redusers
+import { CategoryFieldEnum, OrderFieldEnum, PlatformFieldEnum } from "../../redux/reducers/sortPanelReducer/types";
 // actions
 import { getGamesListAsync, setPage } from "../../redux/actions/imagesSearchActions";
 import { resetFields } from "../../redux/actions/sortPanelActions";
@@ -27,17 +29,17 @@ function SortPanel(): ReactElement {
   const { platformField, categoryField, orderField } = useSelector((state: RootState): RootState["sortPanelReducer"] => state.sortPanelReducer);
   const { status } = useSelector((state: RootState): RootState["imagesSearchReducer"] => state.imagesSearchReducer);
 
-  const isResetDisabled = platformField === "all" && categoryField === "all" && orderField === "all";
+  const isResetDisabled = platformField === PlatformFieldEnum.all && categoryField === CategoryFieldEnum.all && orderField === OrderFieldEnum.all;
 
   const peventedMultiRequest = debounce(() => {
     dispatch(getGamesListAsync());
     dispatch(setPage(1));
-  }, 800);
+}, 800);
 
   const resetAllFields = (): void => {
     dispatch(resetFields());
     dispatch(getGamesListAsync());
-    dispatch(setPage(1));
+    dispatch(setPage(1));    
   };
 
   return (

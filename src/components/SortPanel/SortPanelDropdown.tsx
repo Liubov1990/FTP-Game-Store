@@ -48,8 +48,7 @@ function SortPanelDropdown({ id, formLabel, options }: ISortPanelDropdownProps):
     <FormControl className={classes.formControl} disabled={status === "FAILURE"}>
       <InputLabel id={id}>{formLabel}</InputLabel>
       <Select labelId={formLabel} id={formLabel} value={value} onChange={handleChange}>
-        
-        {options.map((value: string) => (
+        {options?.map((value: string) => (
           <MenuItem key={value} value={value} classes={{ root: classes.rootMenuItem }}>
             {value.toUpperCase()}
           </MenuItem>
