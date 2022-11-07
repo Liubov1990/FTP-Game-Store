@@ -1,22 +1,12 @@
-import React, { ReactElement } from "react";
-import { fireEvent, render, waitFor } from "@testing-library/react";
-import { StoreProviderOverride } from "../../../App";
-import { MemoryRouter } from "react-router-dom";
-import thunk from "redux-thunk";
-import configureStore from "redux-mock-store";
+import React from "react";
+import { fireEvent, waitFor } from "@testing-library/react";
 import SortPanel from "..";
 import { getGamesListAsync, setPage } from "../../../redux/actions/imagesSearchActions";
 import { resetFields } from "../../../redux/actions/sortPanelActions";
 import { CategoryFieldEnum, OrderFieldEnum, PlatformFieldEnum } from "../../../redux/reducers/sortPanelReducer/types";
+import { delayHelper } from "../../../helpers/delay";
+import { renderWithWrapper } from "../../../helpers/wrapper";
 
-interface IWrapperProps {
-  children?: ReactElement;
-  defaultStoreSource: {};
-  defaultDispatch: jest.Mock;
-}
-
-const middlewares = [thunk];
-const mockStore = configureStore(middlewares);
 const initialStoreSource = {
   sortPanelReducer: {
     platformField: PlatformFieldEnum.all,
@@ -26,47 +16,33 @@ const initialStoreSource = {
   imagesSearchReducer: { status: "SUCCESS" }
 };
 
-const Wrapper = ({
-  children,
-  defaultStoreSource = initialStoreSource,
-  defaultDispatch = jest.fn()
-}: IWrapperProps): ReactElement => {
-  const store = mockStore(defaultStoreSource);
-  store.dispatch = defaultDispatch;
-  return (
-    <StoreProviderOverride store={store}>
-      <MemoryRouter>{children}</MemoryRouter>
-    </StoreProviderOverride>
-  );
-};
-
-const delayHelper = (delay: number): Promise<void> =>
-  new Promise(function (resolve) {
-    setTimeout(resolve, delay);
-  });
-
-const renderWithWrapper = (ui: ReactElement, options?: any) =>
-  render(ui, { wrapper: props => <Wrapper {...props} {...options?.wrapperProps} />, ...options });
-
 describe("SortPanel", () => {
   afterEach(() => {
     jest.clearAllMocks();
   });
 
   test("should render component", () => {
-    const { getByText } = renderWithWrapper(<SortPanel />);
+    const { getByText } = renderWithWrapper(<SortPanel />, {
+      wrapperProps: {
+        defaultStoreSource: initialStoreSource
+      }
+    });
     expect(getByText(/Featured games/i)).toBeInTheDocument();
   });
 
   test("should show whether reset button is 'isResetDisabled'", () => {
-    const { getByText } = renderWithWrapper(<SortPanel />);
+    const { getByText } = renderWithWrapper(<SortPanel />, {
+      wrapperProps: {
+        defaultStoreSource: initialStoreSource
+      }
+    });
     expect(getByText(/Reset/i).closest("button")).toBeDisabled();
   });
 
   test("should call 'peventedMultiRequest' function after 800ms after click", async () => {
     const mockedDispatch = jest.fn();
     const { getByText } = renderWithWrapper(<SortPanel />, {
-      wrapperProps: { defaultDispatch: mockedDispatch }
+      wrapperProps: { defaultStoreSource: initialStoreSource, defaultDispatch: mockedDispatch }
     });
     const sortBtn = getByText(/Sort/i).closest("button") as HTMLButtonElement;
     expect(sortBtn).toBeEnabled();
@@ -83,11 +59,11 @@ describe("SortPanel", () => {
     const mockedDispatch = jest.fn();
     const { getByText } = renderWithWrapper(<SortPanel />, {
       wrapperProps: {
-        defaultDispatch: mockedDispatch,
         defaultStoreSource: {
           ...initialStoreSource,
           sortPanelReducer: { ...initialStoreSource.sortPanelReducer, platformField: PlatformFieldEnum.browser }
-        }
+        },
+        defaultDispatch: mockedDispatch
       }
     });
     const resetBtn = getByText(/Reset/i).closest("button") as HTMLButtonElement;
