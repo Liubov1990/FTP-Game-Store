@@ -1,30 +1,11 @@
-import React, { ReactElement } from "react";
-import { render } from "@testing-library/react";
+import React from "react";
 import userEvent from "@testing-library/user-event";
-import { StoreProviderOverride } from "../../../App";
-import { MemoryRouter } from "react-router-dom";
-import thunk from "redux-thunk";
-import configureStore from "redux-mock-store";
-import PaginationComponent from "..";
+import { renderWithWrapper } from "../../../helpers/wrapper";
 import { setPage } from "../../../redux/actions/imagesSearchActions";
+import PaginationComponent from "..";
 
-interface wrapperProps {
-  children?: ReactElement;
-}
-
-const middlewares = [thunk];
-const mockStore = configureStore(middlewares);
-const store = mockStore({
+const initialStoreSource = {
   imagesSearchReducer: { page: 1, totalPages: 1 }
-});
-store.dispatch = jest.fn();
-
-const Wrapper = ({ children }: wrapperProps): ReactElement => {
-  return (
-    <StoreProviderOverride store={store}>
-      <MemoryRouter>{children}</MemoryRouter>
-    </StoreProviderOverride>
-  );
 };
 
 describe("GamePageReducer", () => {
@@ -33,16 +14,21 @@ describe("GamePageReducer", () => {
   });
 
   test("should render component", () => {
-    const { container } = render(<PaginationComponent />, { wrapper: Wrapper });
+    const { container } = renderWithWrapper(<PaginationComponent />, {
+      wrapperProps: { defaultStoreSource: initialStoreSource }
+    });
     const paginationComponent = container.querySelector(".MuiPagination-root");
     expect(paginationComponent).toBeInTheDocument();
   });
 
   test("should set page on onPageChange", () => {
-    const { getByText } = render(<PaginationComponent />, { wrapper: Wrapper });
+    const mockedDispatch = jest.fn();
+    const { getByText } = renderWithWrapper(<PaginationComponent />, {
+      wrapperProps: { defaultStoreSource: initialStoreSource, defaultDispatch: mockedDispatch }
+    });
     const changePageBtn = getByText("1");
-    expect(changePageBtn).not.toBeDisabled();
+    expect(changePageBtn).toBeEnabled();
     userEvent.click(changePageBtn);
-    expect(store.dispatch).toHaveBeenCalledWith(setPage(1));
+    expect(mockedDispatch).toHaveBeenCalledWith(setPage(1));
   });
 });
