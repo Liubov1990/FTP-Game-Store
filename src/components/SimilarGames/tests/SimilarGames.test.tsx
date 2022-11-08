@@ -1,38 +1,20 @@
-import React, { ReactElement } from "react";
-import { render } from "@testing-library/react";
-import { StoreProviderOverride } from "../../../App";
-import { MemoryRouter } from "react-router-dom";
-import thunk from "redux-thunk";
-import configureStore from "redux-mock-store";
+import React from "react";
+import { renderWithWrapper } from "../../../helpers/wrapper";
 import SimilarGames from "..";
 
-interface IWrapperProps {
-  children?: ReactElement;
-  defaultStoreSource: {};
-}
-
-const middlewares = [thunk];
-const mockStore = configureStore(middlewares);
 const initialStoreSource = {
   gamePageReducer: { similarGames: [] }
 };
 
-const Wrapper = ({ children, defaultStoreSource = initialStoreSource }: IWrapperProps): ReactElement => {
-  const store = mockStore(defaultStoreSource);
-  store.dispatch = jest.fn();
-  return (
-    <StoreProviderOverride store={store}>
-      <MemoryRouter>{children}</MemoryRouter>
-    </StoreProviderOverride>
-  );
-};
-
-const renderWithWrapper = (ui: ReactElement, options?: any) =>
-  render(ui, { wrapper: props => <Wrapper {...props} {...options?.wrapperProps} />, ...options });
-
 describe("SimilarGames", () => {
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
   test("should render component", () => {
-    const { getByText } = renderWithWrapper(<SimilarGames />);
+    const { getByText } = renderWithWrapper(<SimilarGames />, {
+      wrapperProps: { defaultStoreSource: initialStoreSource }
+    });
     expect(getByText(/Similar games/i)).toBeInTheDocument();
   });
 
@@ -45,10 +27,10 @@ describe("SimilarGames", () => {
   });
 
   test("should render chip element", () => {
-    const storeSource = { gamePageReducer: { similarGames: [{name: "test-chip"}] }};
+    const storeSource = { gamePageReducer: { similarGames: [{ name: "test-chip" }] } };
     const { getByText } = renderWithWrapper(<SimilarGames />, {
-        wrapperProps: { defaultStoreSource: storeSource }
-      });
+      wrapperProps: { defaultStoreSource: storeSource }
+    });
     expect(getByText("test-chip")).toBeInTheDocument();
   });
 });
