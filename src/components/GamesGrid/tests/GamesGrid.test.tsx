@@ -1,9 +1,6 @@
-import React, { ReactElement } from "react";
-import { fireEvent, render, waitFor } from "@testing-library/react";
-import { StoreProviderOverride } from "../../../App";
-import { MemoryRouter } from "react-router-dom";
-import thunk from "redux-thunk";
-import configureStore from "redux-mock-store";
+import React from "react";
+import { fireEvent } from "@testing-library/react";
+import { renderWithWrapper } from "../../../helpers/wrapper";
 import GamesGrid from "..";
 
 const mockHistoryPush = jest.fn();
@@ -14,30 +11,6 @@ jest.mock("react-router-dom", () => ({
     push: mockHistoryPush
   })
 }));
-
-interface IWrapperProps {
-  children?: ReactElement;
-  defaultStoreSource: {};
-}
-
-const middlewares = [thunk];
-const mockStore = configureStore(middlewares);
-const initialStoreSource = {
-  imagesSearchReducer: { gamesList: [], page: 1, status: "NOT_ASKED" }
-};
-
-const Wrapper = ({ children, defaultStoreSource = initialStoreSource }: IWrapperProps): ReactElement => {
-  const store = mockStore(defaultStoreSource);
-  store.dispatch = jest.fn();
-  return (
-    <StoreProviderOverride store={store}>
-      <MemoryRouter>{children}</MemoryRouter>
-    </StoreProviderOverride>
-  );
-};
-
-const renderWithWrapper = (ui: ReactElement, options?: any) =>
-  render(ui, { wrapper: props => <Wrapper {...props} {...options?.wrapperProps} />, ...options });
 
 describe("GamesGrid", () => {
   afterEach(() => {
@@ -65,7 +38,9 @@ describe("GamesGrid", () => {
   });
 
   test("should redirect to 'GamePage' with mocked 'id: 7' on click", () => {
-    const storeSource = { imagesSearchReducer: { gamesList: [{title: "title-test", id: 7}], page: 1, status: "SUCCESS" } };
+    const storeSource = {
+      imagesSearchReducer: { gamesList: [{ title: "title-test", id: 7 }], page: 1, status: "SUCCESS" }
+    };
     const { getByText } = renderWithWrapper(<GamesGrid />, {
       wrapperProps: {
         defaultStoreSource: storeSource
