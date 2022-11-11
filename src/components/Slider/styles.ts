@@ -51,7 +51,7 @@ export const styles = (): IStyles => ({
     borderRadius: "4px",
     boxShadow: "7px 6px 7px rgba(0,0,0,.5)",
     whiteSpace: "nowrap",
-    padding: "5px",
+    padding: "0 5px",
     marginLeft: "7px",
   },
   playNow: {
