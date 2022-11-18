@@ -44,7 +44,7 @@ describe("Games", () => {
     expect(setState).toBeTruthy();
   });
 
-  test("3", () => {
+  test("should set class 'toShow' on showButtonUp state as true", () => {
     (useStateMock as jest.Mock).mockImplementationOnce(() => [true, setState]);
     renderWithWrapper(<Games />, { wrapperProps: { defaultStoreSource: initialStoreSource } });
     const elem = document.querySelector("[class*=buttonUp]") as HTMLElement;
