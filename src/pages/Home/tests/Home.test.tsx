@@ -18,9 +18,6 @@ const initialStoreSource = {
   }
 };
 
-jest.spyOn(console, 'warn').mockImplementation();
-jest.spyOn(console, 'error').mockImplementation();
-
 describe("Games", () => {
   const setState = jest.fn();
 
