@@ -1,10 +1,14 @@
 import axios from "axios";
 import { API_LINK_GIANT_BOMB, API_LINK_RAPID } from "../constants/apiLinks";
-import { API_KEY_GIANT_BOMB } from "../constants/apiKey";
+import { API_KEY_GIANT_BOMB, API_KEY_RAPID } from "../constants/apiKey";
 import { CategoryFieldEnum, OrderFieldEnum, PlatformFieldEnum } from "../redux/reducers/sortPanelReducer/types";
 
 export function getGamesListRequest({ platformField, categoryField, orderField }: {platformField: PlatformFieldEnum, categoryField: CategoryFieldEnum, orderField: OrderFieldEnum}) {
   return axios.get(`${API_LINK_RAPID}/games`, {
+    headers: {
+      "x-rapidapi-key": API_KEY_RAPID,
+      "x-rapidapi-host": "free-to-play-games-database.p.rapidapi.com",
+    },
     params: {
       platform: platformField,
       ...(categoryField !== "all" && { category: categoryField }),
@@ -15,6 +19,10 @@ export function getGamesListRequest({ platformField, categoryField, orderField }
 
 export function getSpecificDataRequest(id: number) {
   return axios.get(`${API_LINK_RAPID}/game`, {
+    headers: {
+      "x-rapidapi-key": API_KEY_RAPID,
+      "x-rapidapi-host": "free-to-play-games-database.p.rapidapi.com",
+    },
     params: {
       id: Number(id)
     }
