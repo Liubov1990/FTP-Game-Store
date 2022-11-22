@@ -31,10 +31,11 @@ $ cd ../gam-games
 $ npm install
 
 ```
-2. add api key into the project:
+2. add api keys into the project:
 
 - get your API key from [Giant Bomb API](https://www.giantbomb.com/api/);
-- create `.env` file in root directory with content `REACT_APP_GIANT_BOMB_API_KEY=your API key`
+- get your API key from [Rapid API](https://rapidapi.com/);
+- create `.env` file in root directory with content `REACT_APP_GIANT_BOMB_API_KEY=your API key` and `REACT_APP_RAPID_API_KEY=your API key`
 
 3. start project with command:
 
@@ -48,12 +49,9 @@ Open [https://liubov1990.github.io/FTP-Game-Store/](https://liubov1990.github.io
 
 In case you see network error, it means, that you do not have permission to use demo proxy server (in this case follow the link [https://cors-anywhere.herokuapp.com/corsdemo](https://cors-anywhere.herokuapp.com/corsdemo) and press button `Request temporary access to the demo server`) or that limit number of requests on demo proxy server was reached (try again later). 
 
-! Because of restriction of using "thingproxy" on gh-pages, [Rob--W/cors-anywhere](https://github.com/Rob--W/cors-anywhere) is using only for Git Hub Pages.
-
-
 ## Notes
 
-At the moment game data API is using with [thingproxy](https://github.com/Freeboard/thingproxy) proxy server. But you can use any third-party proxy or your own proxy server for correct processing of API calls without CORS errors.
+At the moment game data API is using with [Rob--W/cors-anywhere](https://github.com/Rob--W/cors-anywhere) and [Rapid API](https://rapidapi.com/hub) proxy servers. But you can use any third-party proxy or your own proxy server for correct processing of API calls without CORS errors.
 
 Project powered with [GIANT BOMB API](https://www.giantbomb.com/api/), [Free-To-Play Games Database API](https://www.freetogame.com/api-doc).
 
